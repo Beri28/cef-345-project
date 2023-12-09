@@ -9,11 +9,11 @@ self.addEventListener("install", e=>{
     )
 })
 
-self.addEventListener("fetch",e=>{
-     console.log(`Intercepting fetch request for : ${e.request.url}`)
-    // e.respondWith(
-    //     caches.match(e.request).then(res=>{
-    //         return res || fetch(e.req);
-    //     })
-    // )
-})
+// self.addEventListener("fetch",e=>{
+//      console.log(`Intercepting fetch request for : ${e.request.url}`)
+//     // e.respondWith(
+//     //     caches.match(e.request).then(res=>{
+//     //         return res || fetch(e.req);
+//     //     })
+//     // )
+// })
