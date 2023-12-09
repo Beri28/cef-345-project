@@ -17,9 +17,9 @@ mongoose.connect(process.env.onURI).then(()=>{
 }).catch(()=>{
     console.log("Couldn't connect to db");
 })
-
+let mse="mongodb+srv://berinyuy28:berinyuy28.@cluster0.vb5vpsk.mongodb.net/dreamland"
 const store=new MongoDBSession({
-    uri:process.env.onURI,
+    uri:mse,
     collection:'sessions',
 })
 
