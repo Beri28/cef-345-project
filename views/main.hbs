@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamland Restaurant - {{name}}</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/bootstrap/bootstrap-icons-1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/fonts/css/all.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script  type="text/javascript" src="./assets/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="shadow-2 container position-relative mb-4">
+        <div class="row justify-content-center mt-4 py-2">
+            <div class="col-7 d-flex align-items-md-center">
+                <div class="form-group position-relative">
+                    <input type="search" class="form-control px-5 rounded3 shadow-2" style="background-color: rgba(255, 166, 0,.5);" placeholder="Search dish">
+                    <i class="fas fa-search position-absolute text-muted" style="top: .75em; left: 1.4em;"></i>
+                </div>
+                <!-- <h2 class="col-md-11" style="font-family: cursive;">
+                    Welcome Abe
+                </h2>
+                <p class="col-md-11 text-muted h6 px-2">What do you want to eat?</p> -->
+            </div>
+            <div class="col-2 d-flex justify-content-end align-items-md-center align-items-start position-relative">
+                <!-- <i class="fas fa-bell notifications-icon shadow-2 p-3"></i>
+                <sub class="notifications-num position-absolute">8</sub> -->
+                <i class="fas fa-bell notifications-icon shadow-2 p-3"></i>
+                <sub class="notifications-num position-absolute">8</sub>
+            </div>
+            <div class="col-2 d-flex justify-content-end align-items-md-center align-items-start position-relative">
+                <!-- <i class="fas fa-bell notifications-icon shadow-2 p-3"></i>
+                <sub class="notifications-num position-absolute">8</sub> -->
+                <a href="userCart.html">
+                    <i class="fas fa-shopping-cart notifications-icon shadow-2 p-3"></i>
+                </a>
+                <sub class="notifications-num position-absolute item-num">0</sub>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <p class="col-11 h1" style="font-family: cursive;">Hello {{name}}</p>
+            <p class="col-11 text-muted">What do you want to eat?</p>
+        </div>
+        <div class="user-nav-menu row justify-content-around mt-3 mb-2">
+            <div class="col-2">
+                <i class="fas fa-heart fa-lg shadow-2 p-md-4 p-3"></i>
+                <p class="pt-2 px-1">Favorite</p>
+            </div>
+            <div class="col-2">
+                <i class="fas fa-tag fa-lg shadow-2 p-md-4 p-3"></i>
+                <p class="pt-2 px-1">Cheap</p>
+            </div>
+            <div class="col-2">
+                <i class="fas fa-chart-line fa-lg shadow-2 p-md-4 p-3"></i>
+                <p class="pt-2 px-1">Trend</p>
+            </div>
+            <div class="col-2">
+                {{!-- <i class="fas fa-align-justify shadow-2 p-md-4 p-3"></i> --}}
+                <div class="dropdown">
+                    <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownRightMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      End-aligned menu
+                    </button> -->
+                    <i class="fas fa-align-justify fa-lg shadow-2 p-md-4 p-3" id="dropdownRightMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownRightMenuButton">
+                      <li><h6 class="dropdown-header">Select Option</h6></li>
+                      <li><a class="dropdown-item"  href="/logout">Logout</a></li>
+                      <li><a class="dropdown-item" href="#">Create New Menu</a></li>
+                      <!-- <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Separated link</a></li> -->
+                    </ul>
+                  </div>
+                <p class="pt-2 px-1">More</p>
+            </div>
+        </div>
+        <div class="todays-promo-user todays-promo-user-desktop row d-none d-md-flex justify-content-around">
+            <div class="col-11 d-flex justify-content-md-center justify-content-between" style="margin-bottom: 6em;">
+                <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Promo</h3>
+                <!-- <p class="d-md-none" style="color: orange;">See all</p> -->
+            </div>
+            <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
+                <img src="./assets/pics/achombo-2.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
+                <div class="border rounded3 food-info">
+                    <p>Achombo</p>
+                    <p>With Fish/Mayonnaisse</p>
+                    <p>2000XCFA</p>
+                    <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                </div>
+            </div>
+            <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
+                <img src="./assets/pics/Ndole-1-960x1199-1.png" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
+                <div class="border rounded3 food-info">
+                    <p>Ndole</p>
+                    <p>With Goat meat</p>
+                    <p>2000XCFA</p>
+                    <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                </div>
+            </div>
+            <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
+                <img src="./assets/pics/other-0.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
+                <div class="border rounded3 food-info">
+                    <p>Poulet DJ</p>
+                    <p>With Chicken</p>
+                    <p>2000XCFA</p>
+                    <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div id="carouselExampleCaptions" class="todays-promo-user todays-promo-user-mobile carousel slide pointer-event col d-md-none mt-3" > <!-- put data-bs-ride="cariusel" after class for autoslide change-->
+            <div class="col d-flex justify-content-md-center justify-content-between mx-3" style="margin-bottom: 2em;">
+                <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Promo</h3>
+                <p class="d-md-none" style="color: orange;">See all</p>
+            </div>
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+            </div>
+            <div class="carousel-inner todays-promo-container" style="border-bottom: none;">
+              <!-- <div class="carousel-item">
+                <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
+                    <img src="./assets/pics/achombo-2.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
+                    <div class="border rounded3 carousel-food-info">
+                        <p class="meal-name">Achombo</p>
+                        <p>With Fish/Mayonnaisse</p>
+                        <p>2000XCFA</p>
+                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item active" style="border-bottom: none;">
+                <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
+                    <img src="./assets/pics/Ndole-1-960x1199-1.png" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
+                    <div class="border rounded3 carousel-food-info">
+                        <p class="meal-name">Ndole</p>
+                        <p>With Goat meat</p>
+                        <p>2000XCFA</p>
+                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item" style="border-bottom: none;">
+                <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
+                    <img src="./assets/pics/other-0.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
+                    <div class="border rounded3 carousel-food-info">
+                        <p class="meal-name">Poulet DJ</p>
+                        <p>With Chicken</p>
+                        <p>2000XCFA</p>
+                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                    </div>
+                </div>
+              </div> -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true" style="color: black; background-color: black;"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true" style="color: black; background-color: black;"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="order-history row justify-content-center mb-3">
+            <div class="col-11 d-flex justify-content-md-center justify-content-between mb-4">
+                <h3 class="pb-2" style="border-bottom: 4px solid orange;">Order History <i class="fas fa-caret-down px-2"></i></h3>
+                <p class="d-md-none" style="color: orange;">See all</p>
+            </div>
+            <div class="row justify-content-around order-history-details">
+                <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
+                    <p>Date : 12/07/2023</p>
+                    <p>Food Ordered : Ndole And Plantains</p>
+                    <button class="btn btn-outline-orange-2">View receipt</button>
+                </div>
+                <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
+                    <p>Date : 12/07/2023</p>
+                    <p>Food Ordered : Ndole And Plantains</p>
+                    <button class="btn btn-outline-orange-2">View receipt</button>
+                </div>
+                <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
+                    <p>Date : 12/07/2023</p>
+                    <p>Food Ordered : Ndole And Plantains</p>
+                    <button class="btn btn-outline-orange-2">View receipt</button>
+                </div>
+            </div>
+        </div>
+        <div class="bonuses row justify-content-center my-5">
+            <div class="col-11 d-flex justify-content-start mb-3">
+                <h3 class="pb-2" style="border-bottom: 4px solid orange;">Bonuses <span class="number-of-bonuses px-1">(1)</span></h3>
+            </div>
+            <div class="col-11">
+                <p class="shadow-2 p-3" style="font-weight: bold;"><i class="fas fa-box px-2"></i>50% Off Next meal ordered</p>
+                <!-- <p></p> -->
+            </div>
+        </div>
+    </div>
+    <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script> 
+        $(document).ready(function(){
+            let cartNum;
+            fetch('http://localhost:5000/getMeals',{
+                            method:'GET',
+                            headers:{
+                                'Accept':'application/json, text/plain, */*'
+                            }
+                        })
+            .then(res=>res.json())
+            .then(data=>{
+                let container=document.querySelector('.todays-promo-container')
+                let tpc=''
+                data.forEach(element => {
+                    let active=''
+                    if(tpc==''){
+                        active='active'
+                    }
+                    tpc+=`
+                    <div class="carousel-item ${active}">
+                    <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
+                    <img src="./assets/pics/achombo-2.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
+                    <div class="border rounded3 carousel-food-info">
+                        <p class="meal-name text-capitalize">${element.name}</p>
+                        <p class=" text-capitalize">${element.addOns}</p>
+                        <p>${element.price}XCFA</p>
+                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    `
+                });
+                container.innerHTML=tpc;
+            })
+            .then(()=>{
+                let cart=[]
+                let item=$('.add-2-cart');
+                let itemNum=document.querySelector('.item-num');
+                for(let i=0;i<item.length;i++){
+                    item[i].addEventListener('click',()=>{
+                    let parent=item[i].parentElement;
+                    let mealName=parent.firstChild.nextSibling.innerText;
+                    fetch('http://localhost:5000/cartItem',{
+                        method:'POST',
+                        headers:{
+                            'Accept':'applicaiton/json, text/plain,*/*',
+                            'Content-type':'application/json'
+                        },
+                        body:JSON.stringify({item:mealName})
+
+                    }).then(res=>res.json()).then(()=>{
+                        console.log("Saved cart item succesfully")
+                    })
+                if(cart.includes(mealName)){
+                    return;
+                }
+                else{
+                    cart.push(mealName)
+                    cartNum=itemNum.textContent++;
+                }
+                })
+                }
+            }).then(()=>{
+                let itemNum=document.querySelector('.item-num');
+                itemNum.textContent=cartNum
+            })
+        })  
+    </script>
+    <script src="./assets/js/index.js"></script>
+
+</body>
+</html>
