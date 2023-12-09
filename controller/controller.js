@@ -65,7 +65,13 @@ const loginUser=async (req,res)=>{
         if(req.body.password==oldUser.password){
             req.session.isAuth=true;
             req.session.name=oldUser.name
-            res.redirect('/userAccount')
+            //req.session.account_Type=oldUser.account_Type
+            if(oldUser.account_Type=='restaurant-manager'){
+                res.redirect('/userAccount2')
+            }
+            else{
+                res.redirect('/userAccount')
+            }
         }
         else{
             console.log("Wrong password")
