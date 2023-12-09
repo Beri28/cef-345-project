@@ -34,9 +34,15 @@ router.route('/cartItem').get((req,res)=>{
 })
 
 router.get('/userAccount',isAuth,(req,res)=>{
-    res.render('main',{name:req.session.name})
-})
 
+        //res.render('admin',{name:req.session.name})
+        res.render('main',{name:req.session.name})
+})
+router.get('/userAccount2',isAuth,(req,res)=>{
+
+    res.render('admin',{layout:'admin',name:req.session.name})
+    //res.render('main',{name:req.session.name})
+})
 router.get('/logout',logoutUser)
 
 router.post('/login',loginUser)
