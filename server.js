@@ -11,8 +11,8 @@ const loginRoute=require('./routes/login')
 const MongoDBSession=require('connect-mongodb-session')(session)
 const bcrypt=require('bcrypt')
 const hbs=require('express-handlebars')
-
-mongoose.connect(process.env.onURI).then(()=>{
+let cu='mongodb+srv://berinyuy28:berinyuy28.@cluster0.vb5vpsk.mongodb.net/dreamland'
+mongoose.connect(cu).then(()=>{
     console.log("Successfully connected to db")
 }).catch(()=>{
     console.log("Couldn't connect to db");
