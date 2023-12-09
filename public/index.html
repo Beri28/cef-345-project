@@ -344,7 +344,7 @@
                     item[i].addEventListener('click',()=>{
                     let parent=item[i].parentElement;
                     let mealName=parent.firstChild.nextSibling.innerText;
-                    fetch('http://localhost:5000/cartItem',{
+                    fetch('https://dreamland-restaurant.onrender.com/cartItem',{
                         method:'POST',
                         headers:{
                             'Accept':'applicaiton/json, text/plain,*/*',
