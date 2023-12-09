@@ -12,14 +12,14 @@ const MongoDBSession=require('connect-mongodb-session')(session)
 const bcrypt=require('bcrypt')
 const hbs=require('express-handlebars')
 
-mongoose.connect(process.env.URI).then(()=>{
+mongoose.connect(process.env.onURI).then(()=>{
     console.log("Successfully connected to db")
 }).catch(()=>{
     console.log("Couldn't connect to db");
 })
 
 const store=new MongoDBSession({
-    uri:process.env.URI,
+    uri:process.env.onURI,
     collection:'sessions',
 })
 
