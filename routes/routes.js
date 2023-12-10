@@ -51,7 +51,7 @@ router.post('/register',saveNewUser)
 
 router.get('/getMeals',getMeals)
 router.post('/checkout',isAuth,(req,res)=>{
-    res.render('checkout',{layout:none})
+    res.render('checkout',{layout:'checkout'})
 })
 
 module.exports=router;
