@@ -383,15 +383,18 @@ ul li.col-3{
     .hero{
         display: none;
     }
-    .todays-promo-user-mobile{
+    /* .todays-promo-user-mobile{
         display: none;
-    }
+    } */
     .testimonies{
         margin-bottom: 1.5em;
         padding: 1em;
     }
     .login-bg{
         background-image: linear-gradient(45deg,orange,#efd19a,white);
+    }
+    .password0{
+        text-wrap: nowrap;
     }
     .register-bg{
         background-image: linear-gradient(45deg,white,#efd19a,orange);

@@ -12,6 +12,33 @@
 </head>
 <body>
     <div class="shadow-2 container position-relative mb-4">
+        <div class="row d-md-none d-flex justify-content-around mt-2 border-top border-bottom py-3 mobile-nav-menu" 
+        style="position:fixed; bottom:1em; background-color: #efd19a; z-index: 10; width: 80%; margin-left: 1.7em; border-radius: 20px;">
+            <div class="d-block col-2 rounded pt-3 mobile-active">
+                <a href="#">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-home"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Home</p>
+                </a>
+            </div>
+            <div class="d-block col-2 rounded2 pt-3" style="margin: 0 1.9em;">
+                <a href="#menu">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-th-large"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Menu</p>
+                </a>
+            </div>
+            <div class="d-block col-2 rounded2 pt-3">
+                <a href="">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-user"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Account</p>
+                </a>
+            </div>
+        </div>
         <div class="row justify-content-center mt-4 py-2">
             <div class="col-8 d-flex align-items-md-center">
                 <div class="form-group position-relative d-md-flex d-none " style="margin-left: 3em;">
@@ -132,66 +159,6 @@
                     <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
                 </div>
             </div>
-        </div>
-        <div id="carouselExampleCaptions" class="todays-promo-user todays-promo-user-mobile carousel slide pointer-event col d-md-none mt-3" > <!-- put data-bs-ride="cariusel" after class for autoslide change-->
-            <div class="col d-flex justify-content-md-center justify-content-between mx-3" style="margin-bottom: 2em;">
-                <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Promo</h3>
-                <p class="d-md-none" style="color: orange;">Edit</p>
-            </div>
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-            </div>
-            <div class="carousel-inner" style="border-bottom: none;">
-              <div class="carousel-item">
-                <div class="col-lg-3 col-10 rounded3 px-3 py-5 mb-lg-2 mb-5 position-relative">
-                    <img src="./assets/pics/achombo-2.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                    <div class="border rounded3 carousel-food-info">
-                        <p>Achombo</p>
-                        <p>With Fish/Mayonnaisse</p>
-                        <p>2000XCFA</p>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Edit</button>
-                        <button class="btn btn-outline-orange-2 add-2-cart mt-2" >Delete</button>
-                    </div>
-                </div>
-              </div>
-              <div class="carousel-item active" style="border-bottom: none;">
-                <div class="col-lg-3 col-10 rounded3 px-3 py-5  mb-lg-2 mb-5 position-relative">
-                    <img src="./assets/pics/Ndole-1-960x1199-1.png" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                    <div class="border rounded3 carousel-food-info">
-                        <p>Ndole</p>
-                        <p>With Goat meat</p>
-                        <p>2000XCFA</p>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Edit</button>
-                        <button class="btn btn-outline-orange-2 add-2-cart mt-2" >Delete</button>
-                    </div>
-                </div>
-              </div>
-              <div class="carousel-item" style="border-bottom: none;">
-                <div class="col-lg-3 col-10 rounded3 px-3 py-5  mb-lg-2 mb-5 position-relative">
-                    <img src="./assets/pics/other-0.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                    <div class="border rounded3 carousel-food-info">
-                        <p>Poulet DJ</p>
-                        <p>With Chicken</p>
-                        <p>2000XCFA</p>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Edit</button>
-                        <button class="btn btn-outline-orange-2 add-2-cart mt-2" >Delete</button>
-                    </div>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true" style="color: black; background-color: black;"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true" style="color: black; background-color: black;"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
         </div>
         <div class="todays-menu-mobile d-md-none row justify-content-center">
             <div class="col-11 d-flex justify-content-md-center justify-content-between mb-4">

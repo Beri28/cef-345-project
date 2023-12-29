@@ -11,36 +11,100 @@
     <script  type="text/javascript" src="./assets/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="shadow-2 container position-relative mb-4">
+    <div class="shadow-2 container position-relative mb-5 pb-4">
+        <div class="row d-md-none d-flex justify-content-around mt-2 border-top border-bottom py-3 mobile-nav-menu" 
+        style="position:fixed; bottom:1em; background-color: #efd19a; z-index: 10; width: 80%; margin-left: 1.7em; border-radius: 20px;">
+            <div class="d-block col-2 rounded pt-3 mobile-active">
+                <a href="#">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-home"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Home</p>
+                </a>
+            </div>
+            <div class="d-block col-2 rounded2 pt-3" style="margin: 0 1.9em;">
+                <a href="#menu">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-th-large"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Menu</p>
+                </a>
+            </div>
+            <div class="d-block col-2 rounded2 pt-3">
+                <a href="">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-user"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Account</p>
+                </a>
+            </div>
+        </div>
         <div class="row justify-content-center mt-4 py-2">
-            <div class="col-7 d-flex align-items-md-center">
-                <div class="form-group position-relative">
+            <div class="col-8 d-flex align-items-md-center">
+                <div class="form-group position-relative d-md-flex d-none " style="margin-left: 3em;">
                     <input type="search" class="form-control px-5 rounded3 shadow-2" style="background-color: rgba(255, 166, 0,.5);" placeholder="Search dish">
                     <i class="fas fa-search position-absolute text-muted" style="top: .75em; left: 1.4em;"></i>
                 </div>
-                <!-- <h2 class="col-md-11" style="font-family: cursive;">
-                    Welcome Abe
-                </h2>
-                <p class="col-md-11 text-muted h6 px-2">What do you want to eat?</p> -->
+                <div class="d-md-none d-flex justify-content-between">
+                        <a href="#" class="" style="width: 10%;">
+                            <i class="fas fa-user shadow-2 p-3" style="border-radius: 50%; background-color:#efd19a; background-color: orange;"></i>
+                        </a>
+                        <div class="greetings " style="width: 85%;">
+                            <p class="p-big">Hello {{name}}</p>
+                            <p class="p-small">What changes do you want to make?</p>
+                        </div>
+                </div>
             </div>
             <div class="col-2 d-flex justify-content-end align-items-md-center align-items-start position-relative">
-                <!-- <i class="fas fa-bell notifications-icon shadow-2 p-3"></i>
-                <sub class="notifications-num position-absolute">8</sub> -->
+                <i class="fas fa-shopping-cart notifications-icon shadow-2 p-3"></i>
+                <sub class="notifications-num position-absolute">8</sub>
+            </div>
+            <div class="col-2 d-flex justify-content-md-center justify-content-end align-items-md-center align-items-start position-relative">
                 <i class="fas fa-bell notifications-icon shadow-2 p-3"></i>
                 <sub class="notifications-num position-absolute">8</sub>
             </div>
-            <div class="col-2 d-flex justify-content-end align-items-md-center align-items-start position-relative">
-                <!-- <i class="fas fa-bell notifications-icon shadow-2 p-3"></i>
-                <sub class="notifications-num position-absolute">8</sub> -->
-                <a href="userCart.html">
-                    <i class="fas fa-shopping-cart notifications-icon shadow-2 p-3"></i>
-                </a>
-                <sub class="notifications-num position-absolute item-num">0</sub>
-            </div>
         </div>
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center my-3 d-md-none d-flex">
+                <form action="/search" method="post" class="d-flex" style="margin-left:.7em; margin-bottom:1em;">
+                    <div class="form-group position-relative " style="width: 90%;">
+                        <input type="search" class="form-control px-5" placeholder="Enter dish name" style="background-color: #efd19a;">
+                        <i class="fas fa-search position-absolute" style=" top: .8em; left: 1em; color: gray;"></i>
+                    </div>
+                    <button class="btn btn-outline-orange mx-2"><i class="fas fa-search"></i></button>
+                </form>
+        </div>
+        <div class="row justify-content-center mt-4 admin-greetings">
             <p class="col-11 h1" style="font-family: cursive;">Hello {{name}}</p>
-            <p class="col-11 text-muted">What do you want to eat?</p>
+            <p class="col-md-11 text-muted h6 px-2">What do you want to eat?</p>
+        </div>
+        <div class="promo-mobile-container">
+                <div class="col d-flex justify-content-md-center justify-content-between mx-3" style="margin-bottom: .2em;">
+                    <h3 class="pb-2" style="border-bottom: 2px solid orange;">Promo</h3>
+                    <p class="d-md-none" style="color: orange;">See all</p>
+                </div>
+                <div class="promo">
+                    <div class="promo-1 p-p">
+                        <img src="./assets/pics/achombo-1.jpg" alt="" class="">
+                        <div class="ontop-pic">
+                            <p>Achombo</p>
+                            <p>50%  OFF</p>
+                        </div>
+                    </div>
+                    <div class="promo-2 p-p">
+                        <img src="./assets/pics/kati-kati-1.jpg" alt="" class="">
+                        <div class="ontop-pic ">
+                            <p>Kati Kati</p>
+                            <p>50%  OFF</p>
+                        </div>
+                    </div>
+                    <div class="promo-3 p-p">
+                        <img src="./assets/pics/SauceJaune.jpg" alt="" class="">
+                        <div class="ontop-pic ">
+                            <p>Achu</p>
+                            <p>50%  OFF</p>
+                        </div>
+                    </div>
+                </div>
         </div>
         <div class="user-nav-menu row justify-content-around mt-3 mb-2">
             <div class="col-2">
@@ -73,6 +137,47 @@
                 <p class="pt-2 px-1">More</p>
             </div>
         </div>
+        <div class="menu row justify-content-around my-3 d-md-flex d-none" id="menu1">
+                <div class="d-flex justify-content-center" style="margin-bottom: 6em;">
+                    <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Menu</h3>
+                </div>
+                <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
+                    <img src="./assets/pics/kati-kati-cameroon.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
+                    <div class="border rounded3 food-info">
+                        <p>Kati-Kati</p>
+                        <p>With --</p>
+                        <p>2000XCFA</p>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                            <p class="more">See more...</p>    
+                        </a>
+                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
+                    <img src="./assets/pics/download (1).jpeg" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
+                    <div class="border rounded3 food-info">
+                        <p>Garri</p>
+                        <p>With groundnut</p>
+                        <p>2000XCFA</p>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                            <p class="more">See more...</p>    
+                        </a>
+                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
+                    <img src="./assets/pics/SauceJaune.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
+                    <div class="border rounded3 food-info">
+                        <p>Achu</p>
+                        <p>With Canda</p>
+                        <p>2000XCFA</p>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                            <p class="more">See more...</p>    
+                        </a>
+                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                    </div>
+                </div>
+        </div>
         <div class="todays-promo-user todays-promo-user-desktop row d-none d-md-flex justify-content-around">
             <div class="col-11 d-flex justify-content-md-center justify-content-between" style="margin-bottom: 6em;">
                 <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Promo</h3>
@@ -85,6 +190,7 @@
                     <p>With Fish/Mayonnaisse</p>
                     <p>2000XCFA</p>
                     <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                    <button class="btn btn-outline-orange-2 add-2-cart" >Edit</button>
                 </div>
             </div>
             <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
@@ -106,63 +212,89 @@
                 </div>
             </div>
         </div>
-        <div id="carouselExampleCaptions" class="todays-promo-user todays-promo-user-mobile carousel slide pointer-event col d-md-none mt-3" > <!-- put data-bs-ride="cariusel" after class for autoslide change-->
-            <div class="col d-flex justify-content-md-center justify-content-between mx-3" style="margin-bottom: 2em;">
-                <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Promo</h3>
-                <p class="d-md-none" style="color: orange;">See all</p>
-            </div>
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-            </div>
-            <div class="carousel-inner todays-promo-container" style="border-bottom: none;">
-              <!-- <div class="carousel-item">
-                <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
-                    <img src="./assets/pics/achombo-2.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                    <div class="border rounded3 carousel-food-info">
-                        <p class="meal-name">Achombo</p>
-                        <p>With Fish/Mayonnaisse</p>
-                        <p>2000XCFA</p>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+        <div class="menu-mobile-container mt-2">
+                <div class="col d-flex justify-content-md-center justify-content-between mx-3" style="margin-bottom: .2em;">
+                    <h3 class="pb-2" style="border-bottom: 2px solid orange;">Today's Menu</h3>
+                    <p class="d-md-none" style="color: orange;">See all</p>
+                </div>
+                <div class="menu-mobile d-flex w-100 mt-2">
+                    <div class="col-lg-3 col-7 rounded3 py-3 mb-lg-2 mb-1 position-relative">
+                        <img src="./assets/pics/kati-kati-cameroon.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
+                        <div class="border rounded3 food-info">
+                            <p>Kati-Kati</p>
+                            <p>With --</p>
+                            <p>2000XCFA</p>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                <p class="more">See more...</p>    
+                            </a>
+                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3  col-7 rounded3 py-3  mb-lg-2 mb-1 position-relative">
+                        <img src="./assets/pics/download (1).jpeg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
+                        <div class="border rounded3 food-info">
+                            <p>Garri</p>
+                            <p>With groundnut</p>
+                            <p>2000XCFA</p>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                <p class="more">See more...</p>    
+                            </a>
+                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-7 rounded3 py-3  mb-lg-2 mb-1 position-relative">
+                        <img src="./assets/pics/SauceJaune.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
+                        <div class="border rounded3 food-info">
+                            <p>Achu</p>
+                            <p>With Canda</p>
+                            <p>2000XCFA</p>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                <p class="more">See more...</p>    
+                            </a>
+                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-7 rounded3 py-3 mb-lg-2 mb-1 position-relative">
+                        <img src="./assets/pics/kati-kati-cameroon.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
+                        <div class="border rounded3 food-info">
+                            <p>Kati-Kati</p>
+                            <p>With --</p>
+                            <p>2000XCFA</p>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                <p class="more">See more...</p>    
+                            </a>
+                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-7 rounded3 py-3  mb-lg-2 mb-1 position-relative">
+                        <img src="./assets/pics/download (1).jpeg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
+                        <div class="border rounded3 food-info">
+                            <p>Garri</p>
+                            <p>With groundnut</p>
+                            <p>2000XCFA</p>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                <p class="more">See more...</p>    
+                            </a>
+                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-7 rounded3 py-3  mb-lg-2 mb-1 position-relative">
+                        <img src="./assets/pics/SauceJaune.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
+                        <div class="border rounded3 food-info">
+                            <p>Achu</p>
+                            <p>With Canda</p>
+                            <p>2000XCFA</p>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                <p class="more">See more...</p>    
+                            </a>
+                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                        </div>
                     </div>
                 </div>
-              </div>
-              <div class="carousel-item active" style="border-bottom: none;">
-                <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
-                    <img src="./assets/pics/Ndole-1-960x1199-1.png" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                    <div class="border rounded3 carousel-food-info">
-                        <p class="meal-name">Ndole</p>
-                        <p>With Goat meat</p>
-                        <p>2000XCFA</p>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                    </div>
-                </div>
-              </div>
-              <div class="carousel-item" style="border-bottom: none;">
-                <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
-                    <img src="./assets/pics/other-0.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                    <div class="border rounded3 carousel-food-info">
-                        <p class="meal-name">Poulet DJ</p>
-                        <p>With Chicken</p>
-                        <p>2000XCFA</p>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                    </div>
-                </div>
-              </div> -->
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true" style="color: black; background-color: black;"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true" style="color: black; background-color: black;"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
         </div>
         <div class="order-history row justify-content-center mb-3">
             <div class="col-11 d-flex justify-content-md-center justify-content-between mb-4">
-                <h3 class="pb-2" style="border-bottom: 4px solid orange;">Order History <i class="fas fa-caret-down px-2"></i></h3>
+                <h3 class="pb-2" style="border-bottom: 4px solid orange;">Order History <i class="fas fa-caret-down caret_down px-2"></i></h3>
                 <p class="d-md-none" style="color: orange;">See all</p>
             </div>
             <div class="row justify-content-around order-history-details">
@@ -192,10 +324,43 @@
                 <!-- <p></p> -->
             </div>
         </div>
+         <!-- Modal content starts here -->
+            <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 800px;">
+              <div class="modal-content" style="overflow-y: auto;">
+                <button type="button" class="btn-close p-2 m-2 position-absolute" style="right: 0;" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="container row justify-content-center p-md-5 p-1 mt-md-0 mt-4 mb-md-0 mb-4">
+                    <div class="col-md-6 col-11 mb-md-0 mb-4">
+                        <img src="./assets/pics/other-0.jpg" class="img-fluid rounded3" alt="" style="filter: drop-shadow(2px 4px 16px black);">
+                    </div>
+                    <div class="col-md-6 col-11 pt-md-3">
+                        <p class="h2" style="font-family: cursive;">Food name</p>
+                        <p class="rating">3.8 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (17) ratings</p>
+                        <p>2000FCFA</p>
+                        <div class="description">
+                            <p class="h5">Description</p>
+                            <h6 class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Ab deserunt repellendus accusantium facere sapiente eveniet ducimus sunt, nulla quam, velit molestias illum ipsum nisi rem illo eos eaque neque tempora.</h6>
+                        </div>
+                        <button class="btn btn-orange w-100">Add to Cart</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal content ends here -->
+            </div>
     </div>
     <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script> 
         $(document).ready(function(){
+            let caret_down=document.querySelector('.caret_down');
+            caret_down.addEventListener('click',()=>{
+                caret_down.classList.toggle('fa-caret-up')
+                document.querySelector('.order-history-details').classList.toggle('d-none')
+            })
+            let caret_down2=document.querySelector('.caret_down2');
+            document.cookie=`username=${{{name}}}`
+            console.log(document.cookie)
             let cartNum;
             fetch('http://localhost:5000/getMeals',{
                             method:'GET',

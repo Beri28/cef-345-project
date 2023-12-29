@@ -7,13 +7,13 @@
     "display":"standalone",
     "icons":[
         {
-            "src":"assets/app_pics/logo-1.png",
+            "src":"assets/app_pics/2-logo-2.png",
             "sizes":"192x192",
             "type":"image/png",
             "purpose": "any maskable"
         },
         {
-            "src":"assets/app_pics/logo-2.png",
+            "src":"assets/app_pics/2-logo-1.png",
             "sizes":"512x512",
             "type":"image/png",
             "purpose": "any maskable"
