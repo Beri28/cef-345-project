@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon" href="./assets/app_pics/logo-1.png">
 </head>
 <body>
-    <div class="shadow-2 container mb-4 " style="overflow-x: hidden;">
+    <div class="shadow-2 container mb-4 not-cart" style="overflow-x: hidden;">
         <button class="btn btn-orange" style="position: fixed; bottom: 8.5em; right: 1em; z-index: 10;"><i class="fas fa-comment-alt" style="color: black;"></i></button>
         <div class="row d-md-none d-flex justify-content-around mt-2 border-top border-bottom py-3 mobile-nav-menu" 
         style="position:fixed; bottom:1em; background-color: #efd19a; z-index: 10; width: 80%; margin-left: 1.7em; border-radius: 20px;">
@@ -67,10 +67,10 @@
                         <a href="#" class="d-md-none d-md-flex d-none align-items-center mobile-search-icon p-3" style="text-decoration: none;">
                             <i class="fas fa-search"></i>
                         </a>
-                        <a href="cart.html" class="d-md-none d-flex align-items-center mobile-search-icon p-3 position-relative" style="text-decoration: none;">
+                        <div class="d-md-none d-flex align-items-center mobile-search-icon p-3 position-relative shopping-cart" style="text-decoration: none;">
                             <i class="fas fa-shopping-cart"></i>
                             <sup class="item-num position-absolute item-num" style="top: 3em; right: -.1em; background-color: orange;padding: 0.7em 0.5em 0.78em 0.5em; border-radius: 50%;">0</sup>
-                        </a>
+                        </div>
                     </div>
                     <!-- <h2 class="logo mb-0"><span class="d">D</span><span class="not-d">reamland</span></h2>
                     <h6 style="margin-top: -6px;"><span style="color: orange; font-family: cursive;letter-spacing: .5em;">Restaurant</span></h6>
@@ -89,10 +89,10 @@
                         <i class="fas fa-search position-absolute" style="left: .8em;"></i>
                     </div>
                     <div class="cart position-relative mt-2">
-                        <a href="./cart.html">
+                        <div class="shopping-cart01">
                             <i class="fas fa-shopping-cart shadow-2"></i>
                             <sup class="item-num position-absolute" style="top: -.6em; right: -.9em;">0</sup>
-                        </a>
+                        </div>
                     </div>
                     <div class="account mt-2">
                         <a href="/userAccount">
@@ -116,7 +116,7 @@
                 <i class="fas fa-circle position-absolute d-none d-md-flex" style="color: black; top: 85%; left: 38%;"></i>
                 <i class="fas fa-circle position-absolute d-none d-md-flex" style="color: orange; top: 42%; left: 36%;"></i>
                 <i class="fas fa-circle position-absolute d-none d-md-flex" style="color: red; top: 64%; left: 44%;"></i>
-                <div class="left col-md-6 col-11">
+                <div class="left col-md-6 col-11 d-md-flex d-none">
                     <div class="l-contents w-75 mt-3 pt-4">
                         <p class="display-4 text-capitalize">Order your favorite foods &amp; easy pickup</p>
                         <p class="h6 text-muted pt-2">When it comes to online food order and delivery, we are the best. Our wonderful customer service and fast delivery times
@@ -145,41 +145,8 @@
                 <div class="d-flex justify-content-center" style="margin-bottom: 6em;">
                     <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Menu</h3>
                 </div>
-                <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
-                    <img src="./assets/pics/kati-kati-cameroon.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
-                    <div class="border rounded3 food-info">
-                        <p>Kati-Kati</p>
-                        <p>With --</p>
-                        <p>2000XCFA</p>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
-                            <p class="more">See more...</p>    
-                        </a>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
-                    <img src="./assets/pics/download (1).jpeg" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
-                    <div class="border rounded3 food-info">
-                        <p>Garri</p>
-                        <p>With groundnut</p>
-                        <p>2000XCFA</p>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
-                            <p class="more">See more...</p>    
-                        </a>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
-                    <img src="./assets/pics/SauceJaune.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
-                    <div class="border rounded3 food-info">
-                        <p>Achu</p>
-                        <p>With Canda</p>
-                        <p>2000XCFA</p>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
-                            <p class="more">See more...</p>    
-                        </a>
-                        <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                    </div>
+                <div class="menu-contents row justify-content-around" style="max-width: 100%">
+                    
                 </div>
             </div>
             <div class="promo-mobile-container">
@@ -217,7 +184,7 @@
                     <p class="d-md-none" style="color: orange;">See all</p>
                 </div>
                 <div class="menu-mobile d-flex w-100 mt-2">
-                    <div class="col-lg-3 col-7 rounded3 py-3 mb-lg-2 mb-1 position-relative">
+                    <!-- <div class="col-lg-3 col-7 rounded3 py-3 mb-lg-2 mb-1 position-relative">
                         <img src="./assets/pics/kati-kati-cameroon.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
                         <div class="border rounded3 food-info">
                             <p>Kati-Kati</p>
@@ -288,7 +255,7 @@
                             </a>
                             <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- <div id="carouselExampleCaptions" class="todays-promo-user todays-promo-user-mobile carousel slide pointer-event col d-md-none mt-3" data-bs-ride="cariusel" id="menu" > put data-bs-ride="cariusel" after class for autoslide change
@@ -447,7 +414,7 @@
             <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true" style="display: none;">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 800px;">
               <div class="modal-content" style="overflow-y: auto;">
-                <button type="button" class="btn-close p-2 m-2 position-absolute" style="right: 0;" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- <button type="button" class="btn-close p-2 m-2 position-absolute" style="right: 0;" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="container row justify-content-center p-md-5 p-1 mt-md-0 mt-4 mb-md-0 mb-4">
                     <div class="col-md-6 col-11 mb-md-0 mb-4">
                         <img src="./assets/pics/other-0.jpg" class="img-fluid rounded3" alt="" style="filter: drop-shadow(2px 4px 16px black);">
@@ -463,47 +430,212 @@
                         </div>
                         <button class="btn btn-orange w-100">Add to Cart</button>
                     </div>
-                </div>
+                </div> -->
               </div>
             </div>
             <!-- Modal content ends here -->
             </div>
         </main>
     </div>
+    <div class="shadow-2 container position-relative mb-4 cart d-none">
+        <div class="header">
+            <div class="row justify-content-center mt-4 py-2">
+                <div class="col-lg-2 col-md-3 col d-flex justify-content-between">
+                    <div class="d-md-flex d-none">
+                        <a href="/" class="logo-anchor">
+                            <h2 class="logo mb-0"><span class="d">D</span><span class="not-d">reamland</span></h2>
+                        <h6 style="margin-top: -6px;">
+                            <span style="color: orange; font-family: cursive;letter-spacing: .5em;">Restaurant</span>
+                        </h6>
+                        </a>
+                    </div>
+                    <div class="d-md-none d-flex justify-content-between">
+                        <a href="/" class="" >
+                            <i class="fas fa-home shadow-2 p-3" style="border-radius: 50%; background-color:#efd19a; background-color: orange;"></i>
+                        </a>
+                    </div>
+                    <div class="d-flex">
+                        <a href="#" class="d-md-none d-md-flex d-none align-items-center mobile-search-icon p-3" style="text-decoration: none;">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </div>
+                    <!-- <h2 class="logo mb-0"><span class="d">D</span><span class="not-d">reamland</span></h2>
+                    <h6 style="margin-top: -6px;"><span style="color: orange; font-family: cursive;letter-spacing: .5em;">Restaurant</span></h6>
+                     -->
+                </div>
+                <div class="col-lg-6 col-md-8 d-md-flex d-none justify-content-end align-content-center mb-0">
+                    <ul class="row w-75">
+                        <li class="col-lg-3 col-4"><a href="/" style="text-decoration: none;">Home</a></li>
+                        <li class="col-lg-3 col-4"><a href="index.html#todaysmenu" style="text-decoration: none;">Menu</a></li>
+                        <li class="col-lg3 col-4"><a href="contact.html" style="text-decoration: none;">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md d-md-flex d-none justify-content-lg-end justify-content-md-end align-content-center 3-h-sec">
+                    <div class="account mt-2">
+                        <a href="/userAccount">
+                            <i class="fas fa-user shadow-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="cart-container">
+
+            </div>
+            <hr style="margin: 1rem 3.5em;">
+            <div class="row justify-content-center mb-2">
+                <div class="col-11">
+                    <form action="/checkout" method="post" class="col-md-6 col-11 shadow-2 p-5 mb-4 rounded">
+                        <h3 class="mb-2">Cart Total</h3>
+                        <div class="col d-flex justify-content-between border-bottom mb-2">
+                            <p class="h6" style="font-weight: bold;">Total </p>
+                            <p class="h6" style="font-weight: bold;"><span class="grand-total"></span> FCFA</p>
+                        </div>
+                        <button class="btn btn-outline-orange mt-2">Proceed to payment <i class="fas fa-arrow-right px-1"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
   <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script> 
   <script src="./assets/js/index.js"></script>
   <script>
-                let cart=[]
-                let item=$('.add-2-cart');
-                let itemNum=document.querySelector('.item-num');
-                for(let i=0;i<item.length;i++){
-                    item[i].addEventListener('click',()=>{
-                    let parent=item[i].parentElement;
-                    let mealName=parent.firstChild.nextSibling.innerText;
-                    fetch('http://localhost:5000/cartItem',{
-                        method:'POST',
-                        headers:{
-                            'Accept':'applicaiton/json, text/plain,*/*',
-                            'Content-type':'application/json'
-                        },
-                        body:JSON.stringify({item:mealName})
+                // let cart=[]
+                // let cartNum
+                // let item=$('.add-2-cart');
+                // let itemNum=document.querySelector('.item-num');
+                // for(let i=0;i<item.length;i++){
+                //     item[i].addEventListener('click',()=>{
+                //     let parent=item[i].parentElement;
+                //     let mealName=parent.firstChild.nextSibling.innerText;
+                //     fetch('http://localhost:5000/cartItem',{
+                //         method:'POST',
+                //         headers:{
+                //             'Accept':'applicaiton/json, text/plain,*/*',
+                //             'Content-type':'application/json'
+                //         },
+                //         body:JSON.stringify({item:mealName})
 
-                    }).then(res=>res.json()).then(()=>{
-                        console.log("Saved cart item succesfully")
-                    }).then(()=>{
-                        if(cart.includes(mealName)){
-                    return;
-                }
-                else{
-                    cart.push(mealName)
-                    cartNum=itemNum.textContent++;
-                }
-                let itemNum=document.querySelector('.item-num');
-                console.log(itemNum)
+                //     }).then(res=>res.json()).then(()=>{
+                //         console.log("Saved cart item succesfully")
+                //     }).then(()=>{
+                //         if(cart.includes(mealName)){
+                //     return;
+                //     }
+                //     else{
+                //         cart.push(mealName)
+                //         cartNum=itemNum.textContent++;
+                //     }
+                // let itemNum=document.querySelector('.item-num');
+                // console.log(itemNum)
                 // itemNum.textContent=cartNum
-                })
+                // })
+                //     })
+                // }
+                $(document).ready(function(){
+                    let allMeals;
+                    fetch('http://localhost:5000/getMeals',{
+                        method:'GET'
+                    }).then(res=>res.json()).then((data)=>{
+                        console.log(data)
+                        allMeals=data
+                        let menu_mobile=document.querySelector('.menu-mobile')
+                        let menu=document.querySelector('.menu-contents')
+                        let mc=''
+                        let m=''
+                        data.forEach(element => {
+                            mc+=`
+                            <div class="col-lg-3 col-7 rounded3 py-3 mb-lg-2 mb-1 position-relative">
+                                <img src="./assets/images/${element.image}" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
+                                <div class="border rounded3 food-info">
+                                <p>${element.name}</p>
+                                <p>${element.price} FCFA</p>
+                                <p style="display: none;">${element._id}</p>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                    <p class="more">See more...</p>    
+                                </a>
+                                <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                                </div>
+                            </div>
+                            `
+                            m+=`
+                            <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
+                                <img src="./assets/images/${element.image}" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
+                                <div class="border rounded3 food-info">
+                                    <p>${element.name}</p>
+                                    <p>${element.rating}</p>
+                                    <p>${element.price} FCFA</p>
+                                    <p style="display: none;">${element._id}</p>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                        <p class="more">See more...</p>    
+                                    </a>
+                                    <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                                </div>
+                            </div>
+                            `
+                        });
+                        menu_mobile.innerHTML=mc;
+                        menu.insertAdjacentHTML('beforeend',m)
+                        let more=document.querySelectorAll('.more')
+                        let modal_content=document.querySelector('.modal-content')
+                        for(let i=0;i<more.length;i++){
+                            more[i].addEventListener('click',()=>{
+                                let id=more[i].parentElement.previousElementSibling.textContent
+                                let results;
+                                for(let i=0;i<allMeals.length;i++){
+                                    if(allMeals[i]._id==id){
+                                        results=allMeals[i]
+                                        break;
+                                    }
+                                }
+                                // allMeals.forEach(element=>{
+                                //     if(element._id==id) results=element
+                                // })
+                                console.log(results)
+                                modal_content.innerHTML=`
+                                <button type="button" class="btn-close p-2 m-2 position-absolute" style="right: 0;" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <div class="container row justify-content-center p-md-5 p-1 mt-md-0 mt-4 mb-md-0 mb-4">
+                                    <div class="col-md-6 col-11 mb-md-0 mb-4">
+                                        <img src="./assets/images/${results.image}" class="img-fluid rounded3" alt="" style="filter: drop-shadow(2px 4px 16px black);">
+                                    </div>
+                                    <div class="col-md-6 col-11 pt-md-3">
+                                        <p class="h2" style="font-family: cursive;">${results.name}</p>
+                                        <p class="rating">Rating ${results.rating} <span class="stars"></span> (${results.rated_by} ratings)</p>
+                                        <p>${results.price} FCFA</p>
+                                        <div class="description">
+                                            <p class="h5">Description</p>
+                                            <h6 class="text-muted">
+                                                ${results.description}
+                                            </h6>
+                                        </div>
+                                        <button class="btn btn-orange w-100">Add to Cart</button>
+                                    </div>
+                                </div>
+                                ` 
+                            })
+                        }
+                    }).then((data)=>{
+                        
                     })
-                }
+                    document.querySelector('.shopping-cart').addEventListener('click',()=>{
+                        $('.not-cart').hide()
+                        $('.cart').removeClass('d-none')
+                    })
+                    document.querySelector('.shopping-cart01').addEventListener('click',()=>{
+                        $('.not-cart').hide()
+                        $('.cart').removeClass('d-none')
+                    })
+                    // document.querySelector('.shopping-cart20').addEventListener('click',()=>{
+                    //     $('.cart').addClass('d-none')
+                    //     $('.not-cart').toggle()
+
+                    // })
+                    // document.querySelector('.shopping-cart21').addEventListener('click',()=>{
+                    //     $('.cart').addClass('d-none')
+                    //     $('.not-cart').toggle()
+                    // })
+                })
   </script>
 </body>
 </html>

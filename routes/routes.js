@@ -29,6 +29,7 @@ router.route('/add').get((req,res)=>{
 router.route('/cartItem').get((req,res)=>{
         res.send(cartItems)
 }).post((req,res)=>{
+    console.log(cartItems)
     if(cartItems.includes(req.body.item)){
         console.log("already added to cart");
     }

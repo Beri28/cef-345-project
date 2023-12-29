@@ -49,6 +49,7 @@ a:hover{
 .p-small{
     font-size: 10px;
     color: var(--primary-color);
+    text-wrap: nowrap;
 }
 ul li{
     list-style: none;
@@ -366,7 +367,7 @@ ul li.col-3{
     margin-top: 4em;
     padding: 6em 1em 1em 3em;
 }
-.caret_down:hover{
+.caret_down:hover,.caret_down2:hover{
     cursor: pointer;
 }
 /* Styling for admin.hbs ends here*/
@@ -404,6 +405,9 @@ ul li.col-3{
     }
     .admin-greetings{
         display: none;
+    }
+    .reg p a{
+        color: rgb(255, 255, 255);
     }
 }
 @media screen and (width >800px) {

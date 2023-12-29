@@ -11,7 +11,7 @@
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="shadow-2 container position-relative mb-4">
+    <div class="shadow-2 container position-relative mb-4 pb-5 not-cart">
         <div class="row d-md-none d-flex justify-content-around mt-2 border-top border-bottom py-3 mobile-nav-menu" 
         style="position:fixed; bottom:1em; background-color: #efd19a; z-index: 10; width: 80%; margin-left: 1.7em; border-radius: 20px;">
             <div class="d-block col-2 rounded pt-3 mobile-active">
@@ -55,7 +55,7 @@
                         </div>
                 </div>
             </div>
-            <div class="col-2 d-flex justify-content-end align-items-md-center align-items-start position-relative">
+            <div class="col-2 d-flex justify-content-end align-items-md-center align-items-start position-relative shopping-cart">
                 <i class="fas fa-shopping-cart notifications-icon shadow-2 p-3"></i>
                 <sub class="notifications-num position-absolute">8</sub>
             </div>
@@ -75,7 +75,7 @@
         </div>
         <div class="row justify-content-center mt-4 admin-greetings">
             <p class="col-11 h1" style="font-family: cursive;">Hello {{name}}</p>
-            <p class="col-11 text-muted">What changes do yoyu want to make?</p>
+            <p class="col-11 text-muted">What changes do you want to make?</p>
         </div>
         <div class="user-nav-menu row justify-content-around mt-4 mb-4">
             <div class="col-2">
@@ -160,26 +160,15 @@
                 </div>
             </div>
         </div>
-        <div class="todays-menu-mobile d-md-none row justify-content-center">
+        <div class="todays-menu-mobile d-md-none row justify-content-center all-meals">
             <div class="col-11 d-flex justify-content-md-center justify-content-between mb-4">
-                <h3 class="pb-2" style="border-bottom: 1px solid orange;">All Meals <i class="fas fa-caret-down caret_down2 px-2"></i></h3>
+                <h3 class="pb-2" style="border-bottom: 1px solid orange;">All Meals <i class="fas fa-caret-down caret_down3 px-2"></i></h3>
                 <p class="d-md-none" style="color: orange;">See all</p>
             </div>
-            <div class="col-lg-3 col-11 rounded3 py-3 mb-lg-2 mb-1 position-relative admin-menu mt-4">
-                        <img src="./assets/pics/kati-kati-cameroon.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
-                        <div class="border rounded3 food-info">
-                            <p>Kati-Kati</p>
-                            <p>2000XCFA</p>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
-                                <p class="more">See more...</p>    
-                            </a>
-                            <button class="btn btn-outline-orange-2 add-2-cart" style="border-radius:10px;"><i class="fas fa-plus" style="font-size: 12px;">Add to cart</i></button>
-                            <button class="btn btn-outline-orange-2" style="border-radius: 10px;"><i class="fas fa-trash" style="font-size: 12px;"> Delete</i></button>
-                            <button class="btn btn-outline-orange-2" style="border-radius: 10px;"><i class="fas fa-edit" style="font-size: 12px;"> Edit</i></button>
-                            <button class="btn btn-outline-orange-2 mt-2" style="border-radius: 10px; font-size:12px; font-weight:bold;">Add to Today's Menu</button>
-                            <button class="btn btn-outline-orange-2 mt-2" style="border-radius: 10px; font-size:12px; font-weight:bold;">Add to Promo Menu</button>
-                        </div>
+            <div class="all-meals-container row justify-content-center">
+
             </div>
+            
         </div>
         <div class="pending-orders row justify-content-center mb-3" id="pending-orders">
             <div class="col-11 d-flex justify-content-md-center justify-content-between mb-4">
@@ -251,6 +240,64 @@
             <!-- Modal content ends here -->
             </div>
     </div>
+    <div class="shadow-2 container position-relative mb-4 cart d-none">
+        <div class="header">
+            <div class="row justify-content-center mt-4 py-2">
+                <div class="col-lg-2 col-md-3 col d-flex justify-content-between">
+                    <div class="d-md-flex d-none">
+                        <a href="/userAccount2" class="logo-anchor">
+                            <h2 class="logo mb-0"><span class="d">D</span><span class="not-d">reamland</span></h2>
+                        <h6 style="margin-top: -6px;">
+                            <span style="color: orange; font-family: cursive;letter-spacing: .5em;">Restaurant</span>
+                        </h6>
+                        </a>
+                    </div>
+                    <div class="d-md-none d-flex justify-content-between">
+                        <a href="/userAccount2" class="" >
+                            <i class="fas fa-home shadow-2 p-3" style="border-radius: 50%; background-color:#efd19a; background-color: orange;"></i>
+                        </a>
+                    </div>
+                    <div class="d-flex">
+                        <a href="#" class="d-md-none d-md-flex d-none align-items-center mobile-search-icon p-3" style="text-decoration: none;">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8 d-md-flex d-none justify-content-end align-content-center mb-0">
+                    <ul class="row w-75">
+                        <li class="col-lg-3 col-4"><a href="/userAccount2" style="text-decoration: none;">Home</a></li>
+                        <li class="col-lg-3 col-4"><a href="index.html#todaysmenu" style="text-decoration: none;">Menu</a></li>
+                        <li class="col-lg3 col-4"><a href="contact.html" style="text-decoration: none;">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md d-md-flex d-none justify-content-lg-end justify-content-md-end align-content-center 3-h-sec">
+                    <div class="account mt-2">
+                        <a href="/userAccount2">
+                            <i class="fas fa-user shadow-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="cart-container">
+
+            </div>
+            <hr style="margin: 1rem 3.5em;">
+            <div class="row justify-content-center mb-2">
+                <div class="col-11">
+                    <form action="/checkout" method="post" class="col-md-6 col-11 shadow-2 p-5 mb-4 rounded">
+                        <h3 class="mb-2">Cart Total</h3>
+                        <div class="col d-flex justify-content-between border-bottom mb-2">
+                            <p class="h6" style="font-weight: bold;">Total </p>
+                            <p class="h6" style="font-weight: bold;"><span class="grand-total"></span> FCFA</p>
+                        </div>
+                        <button class="btn btn-outline-orange mt-2">Proceed to payment <i class="fas fa-arrow-right px-1"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="./assets/js/index.js"></script>
     <script>
@@ -264,8 +311,46 @@
             caret_down2.addEventListener('click',()=>{
                 caret_down2.classList.toggle('fa-caret-up')
                 document.querySelector('.completed-order-details').classList.toggle('d-none')
-                document.querySelector('.admin-menu').classList.toggle('d-none')
             })
+            let caret_down3=document.querySelector('.caret_down3');
+            caret_down3.addEventListener('click',()=>{
+                caret_down3.classList.toggle('fa-caret-up')
+                document.querySelector('.all-meals-container').classList.toggle('d-none')
+            })
+
+            fetch('http://localhost:5000/getMeals',{
+                method:'GET'
+            }).then(res=>res.json())
+            .then((data)=>{
+                let all_meals=document.querySelector('.all-meals-container');
+                let ac=''
+                data.forEach(element=>{
+                    ac+=`
+                    <div class="col-11 rounded3 py-3 mb-lg-2 mb-1 position-relative admin-menu mt-4">
+                        <img src="./assets/images/${element.image}" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
+                        <div class="border rounded3 food-info">
+                            <p>${element.name}</p>
+                            <p>${element.rating}</p>
+                            <p>${element.price} FCFA</p>
+                            <p style="display: none;">${element._id}</p>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                <p class="more">See more...</p>    
+                            </a>
+                            <button class="btn btn-outline-orange-2 add-2-cart" style="border-radius:10px;"><i class="fas fa-plus" style="font-size: 12px;">Add to cart</i></button>
+                            <button class="btn btn-outline-orange-2" style="border-radius: 10px;"><i class="fas fa-trash" style="font-size: 12px;"> Delete</i></button>
+                            <button class="btn btn-outline-orange-2" style="border-radius: 10px;"><i class="fas fa-edit" style="font-size: 12px;"> Edit</i></button>
+                            <button class="btn btn-outline-orange-2 mt-2" style="border-radius: 10px; font-size:12px; font-weight:bold;">Add to Today's Menu</button>
+                            <button class="btn btn-outline-orange-2 mt-2" style="border-radius: 10px; font-size:12px; font-weight:bold;">Add to Promo Menu</button>
+                        </div>
+                    </div>
+                    `
+                })
+                all_meals.insertAdjacentHTML('beforeend',ac)
+            })
+            document.querySelector('.shopping-cart').addEventListener('click',()=>{
+                        $('.not-cart').hide()
+                        $('.cart').removeClass('d-none')
+                    })
         })
     </script>
 </body>
