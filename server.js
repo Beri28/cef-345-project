@@ -18,7 +18,7 @@ const mealSchema=require('./model/meal')
 
 
 let cu='mongodb+srv://berinyuy28:berinyuy28.@cluster0.vb5vpsk.mongodb.net/dreamland'
-mongoose.connect(process.env.URI).then(()=>{
+mongoose.connect(cu).then(()=>{
     console.log("Successfully connected to db")
 }).catch(()=>{
     console.log("Couldn't connect to db");
@@ -26,7 +26,7 @@ mongoose.connect(process.env.URI).then(()=>{
 
 let mse="mongodb+srv://berinyuy28:berinyuy28.@cluster0.vb5vpsk.mongodb.net/dreamland"
 const store=new MongoDBSession({
-    uri:process.env.URI,
+    uri:mse,
     collection:'sessions',
 })
 
