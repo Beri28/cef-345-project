@@ -4,22 +4,29 @@ const dotenv=require('dotenv').config();
 const router=require('./routes/routes')
 const mongoose=require('mongoose');
 const session=require('express-session');
-//const passport=require('passport')
+const passport=require('passport')
 const userSchema=require('./model/user')
 const loginRoute=require('./routes/login')
-//const LocalStrategy=require('passport-local');
+const LocalStrategy=require('passport-local');
 const MongoDBSession=require('connect-mongodb-session')(session)
 const bcrypt=require('bcrypt')
 const hbs=require('express-handlebars')
+const multer=require('multer')
+const path=require('path')
+const fs=require('fs')
+const mealSchema=require('./model/meal')
 
-mongoose.connect(process.env.onURI).then(()=>{
+
+let cu='mongodb+srv://berinyuy28:berinyuy28.@cluster0.vb5vpsk.mongodb.net/dreamland'
+mongoose.connect(process.env.URI).then(()=>{
     console.log("Successfully connected to db")
 }).catch(()=>{
     console.log("Couldn't connect to db");
 })
 
+let mse="mongodb+srv://berinyuy28:berinyuy28.@cluster0.vb5vpsk.mongodb.net/dreamland"
 const store=new MongoDBSession({
-    uri:process.env.onURI,
+    uri:process.env.URI,
     collection:'sessions',
 })
 
@@ -40,6 +47,17 @@ app.use(session({
     store:store,
 }))
 
+
+const storage=multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,'./public/assets/images')
+    },
+    filename:(req,file,cb)=>{
+        cb(null,path.basename(file.originalname))
+    }
+})
+
+const upload=multer({storage:storage})
 
 //checks if user has been authenticated
 const isAuth=async(req,res,next)=>{
@@ -86,10 +104,37 @@ const isAuth=async(req,res,next)=>{
 //         }
 //     }
 // })
-// app.get('/dashboard',isAuth,(req,res)=>{
-//     res.send("Welcome")
-// })
+app.get('/dashboard',isAuth,(req,res)=>{
+    res.send("Welcome")
+})
 
+app.post('/add',upload.single('image'),async (req,res)=>{
+    try {
+        if(req.session.isAuth){
+            req.body.image=req.body.name + path.extname(req.file.originalname) 
+            let oldImagePath= "public/assets/images/" + req.file.originalname;
+            let newImageName=req.body.name + path.extname(req.file.originalname) 
+            let newImagePath="public/assets/images/" + newImageName
+            fs.rename(`${oldImagePath}`,`${newImagePath}`,(err)=>{
+                if(err){
+                    throw(err)
+                }
+            })
+            let newMeal= new mealSchema(req.body);
+            newMeal.save().then(()=>{
+                res.redirect('/userAccount2')
+            }).catch(()=>{
+                res.send("Couldn't save")
+            })
+        }
+        else{
+            res.redirect('/login')
+        }
+    } catch (error) {
+        console.log(error)
+        res.send("error in adding new meal")
+    }
+})
 app.use('/',router)
 
 app.listen(process.env.PORT,()=>{

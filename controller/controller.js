@@ -1,6 +1,7 @@
 const userSchema=require('../model/user')
 const mealSchema=require('../model/meal')
 
+
 const saveNewUser=async (req,res)=>{
     let userRes=await userSchema.findOne({email:req.body.email})
     if(userRes){
@@ -16,30 +17,16 @@ const saveNewUser=async (req,res)=>{
         })
     }
 } 
-// async (req,res)=>{
-//     try {
-//         console.log(req.body)
-//         let newUser=new userSchema(req.body);
-//         newUser.save().then(()=>{
-//             res.send("Saved succesfully.")
-//         }).catch(()=>{
-//             console.log("Couldn't save user.")
-//             res.send("Couldn't save user.")
-//         })
-//     } catch (error) {
-//         console.log(error);
-//         res.send(error)
-//     }
-// }
 
 const saveNewMeal=async (req,res)=>{
     try {
+        console.log(req.body)
         let newMeal= new mealSchema(req.body);
-        newMeal.save().then(()=>{
-            res.send("Saved Meal Succesfully")
-        }).catch(()=>{
-            res.send("Couldn't save")
-        })
+        // newMeal.save().then(()=>{
+        //     res.send("Saved Meal Succesfully")
+        // }).catch(()=>{
+        //     res.send("Couldn't save")
+        // })
     } catch (error) {
         console.log(error)
         res.send(error)
@@ -65,7 +52,13 @@ const loginUser=async (req,res)=>{
         if(req.body.password==oldUser.password){
             req.session.isAuth=true;
             req.session.name=oldUser.name
-            res.redirect('/userAccount')
+            //req.session.account_Type=oldUser.account_Type
+            if(oldUser.account_Type=='restaurant-manager'){
+                res.redirect('/userAccount2')
+            }
+            else{
+                res.redirect('/userAccount')
+            }
         }
         else{
             console.log("Wrong password")

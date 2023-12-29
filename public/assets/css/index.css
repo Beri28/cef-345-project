@@ -1,6 +1,7 @@
 :root{
     --primary-color:orange;
     --sec-color: rgb(255, 166, 0,.5);
+    --tet-color:#efd19a;
 }
 
 body{
@@ -37,6 +38,18 @@ a:hover{
 .logo-anchor:hover{
     color: initial;
 }
+.greetings{
+    margin-top: 1em;
+    margin-left: 2em;
+    line-height: 0.1em;
+}
+.p-big{
+    font-family: cursive;
+}
+.p-small{
+    font-size: 10px;
+    color: var(--primary-color);
+}
 ul li{
     list-style: none;
     display: flex;
@@ -62,6 +75,10 @@ ul li.col-3{
 .mobile-active{
     box-shadow:0 .5rem 1rem rgba(0,0,0,.25)!important;
     background-color: rgba(255, 166, 0,.8); 
+    /* background-color: rgb(253, 181, 48); */
+}
+.mobile-nav-menu div a p{
+    color: black;
 }
 .search-bar{
     display: flex;
@@ -143,8 +160,14 @@ ul li.col-3{
     padding-top: 4em;
 }
 .food-pic{
-    top: -13%; 
+    top: -12%; 
     left: 25%;
+    filter: drop-shadow(2px 4px 16px black);
+}
+.food-pic-mobile{ 
+    top: -4%;
+    left: 22%; 
+    filter: drop-shadow(2px 4px 16px black);
 }
 .food-info{
     padding: 5em 1em 2em 3em;
@@ -154,8 +177,66 @@ ul li.col-3{
 .food-info p{
     font-weight: bolder;
 }
+.food-info button{
+    border-radius: 20px 0;
+}
+.more{
+    color: var(--primary-color);
+}
+.menu-mobile{
+    overflow-x: auto;
+}
+.menu-mobile::-webkit-scrollbar{
+    width: 0;
+    scroll-behavior: smooth;
+}
+.menu-mobile div{
+    margin-top: 1em;
+    margin-right: 1em;
+}
 /* Styling for menu section ends here */
+/* Styling for mobile-promo section starts here */
+.promo{
+    display: flex;
+    min-width: 100vw;
+    height: 15vh;
+    overflow-x: auto;
+}
+.promo::-webkit-scrollbar{
+    width: 0;
+}
+.promo div{
+    width: 90vw;
+    height: 99%;
+    margin-right: 1em;
+}
+.promo div img{
+    width: 90vw;
+    height: 95%;
+    border-radius: 25px;
+    filter: brightness(.5);
+}
+.p-p{
+    position: relative;
+}
+.ontop-pic{
+    display: block;
+    /* justify-content: space-between; */
+    padding: 0 1.5em;
+    color: var(--tet-color);
+    font-weight: bolder;
+    position: absolute;
+    top: 28%;
+    left: 30%;
+    line-height: .4em;
+}
+/* Styling for mobile-promo section ends here */
+
 /* Styling for testimonials section begins here */
+.testimonies{
+    border: 1px solid var(--tet-color);
+    border-radius: 25px 0;
+}
 .rating{
     color: var(--primary-color);
 }
@@ -237,13 +318,102 @@ ul li.col-3{
 .carousel-food-info p{
     font-weight: bolder;
 }
-/* Styling for user.html page ends jere */
+/* Styling for user.html page ends here */
+/* Dialog box starts here */
+.dialog-box{
+    border: 1px solid var(--tet-color);
+    border-radius: 20px 20px 0 20px;
+    padding: 0;
+    width: 25em;
+    height: 100%;
+    position: relative;
+}
+.dialog-top{
+    height: 4em;
+    background-color: var(--primary-color);
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    padding: 1em;
+}
+.dialog-body{
+    width: 100%;
+    height: 12em;
+}
+.message-input{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 99.9%;
+}
+.message-send-btn{
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+/* Dialog box ends here */
 
+/* meal.html styling starts here */
+.rating i{
+    color: var(--primary-color);
+}
+/* meal.html styling ends here */
+/* Styling for admin.hbs */
+.todays-menu-mobile{
+}
+.admin-menu img{
+    left: 26.5%;
+}
+.admin-menu div{
+    margin-top: 4em;
+    padding: 6em 1em 1em 3em;
+}
+.caret_down:hover{
+    cursor: pointer;
+}
+/* Styling for admin.hbs ends here*/
 
 
 /* Responsive design begins here */
 @media screen and (width <= 768px) {
     .w-c-75{
         width: 90%;
+    }
+    .logo-anchor{
+        display: none;
+    }
+    .hero{
+        display: none;
+    }
+    .todays-promo-user-mobile{
+        display: none;
+    }
+    .testimonies{
+        margin-bottom: 1.5em;
+        padding: 1em;
+    }
+    .login-bg{
+        background-image: linear-gradient(45deg,orange,#efd19a,white);
+    }
+    .register-bg{
+        background-image: linear-gradient(45deg,white,#efd19a,orange);
+    }
+    .add-bg{
+        background-image: linear-gradient(45deg,white, #efd19a);
+    }
+    .admin-greetings{
+        display: none;
+    }
+}
+@media screen and (width >800px) {
+    .promo-mobile-container{
+        display: none;
+    }
+    .menu-mobile-container{
+        display: none;
+    }
+    .testimonies{
+        padding: 1em;
+    }
+    .add-bg{
+        background-image: linear-gradient(45deg,orange,#efd19a,white);
     }
 }

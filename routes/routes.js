@@ -17,10 +17,14 @@ router.route('/home').get((req,res)=>{
     console.log(req.session)
     res.send("Hello from routes")
 })
+router.get('/login',(req,res)=>{
+    res.sendFile('login.html',{root:'./public'})
+})
 
 router.route('/add').get((req,res)=>{
     res.sendFile('add.html',{root:'./public'})
-}).post(saveNewMeal)
+})
+// .post(saveNewMeal)
 
 router.route('/cartItem').get((req,res)=>{
         res.send(cartItems)
@@ -34,7 +38,14 @@ router.route('/cartItem').get((req,res)=>{
 })
 
 router.get('/userAccount',isAuth,(req,res)=>{
-    res.render('main',{name:req.session.name})
+
+        //res.render('admin',{name:req.session.name})
+        res.render('main',{name:req.session.name})
+})
+router.get('/userAccount2',isAuth,(req,res)=>{
+
+    res.render('admin',{layout:'admin',name:req.session.name})
+    //res.render('main',{name:req.session.name})
 })
 
 router.get('/logout',logoutUser)
@@ -45,7 +56,7 @@ router.post('/register',saveNewUser)
 
 router.get('/getMeals',getMeals)
 router.post('/checkout',isAuth,(req,res)=>{
-    res.render('checkout',{layout:none})
+    res.render('checkout',{layout:'checkout',layout:none})
 })
 
 module.exports=router;
