@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamland Restaurant - Achombo</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/fonts/css/all.css">
+    <link rel="stylesheet" href="./assets/bootstrap/bootstrap-icons-1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="shadow-2 container mb-4 " style="overflow-x: hidden;">
+        <button class="btn btn-orange" style="position: fixed; bottom: 8.5em; right: 1em; z-index: 10;"><i class="fas fa-comment-alt" style="color: black;"></i></button>
+        <div class="row d-md-none d-flex justify-content-around mt-2 border-top border-bottom py-3 mobile-nav-menu" 
+        style="position:fixed; bottom:1em; background-color: #efd19a; z-index: 10; width: 80%; margin-left: 1.7em; border-radius: 20px;">
+            <div class="d-block col-2 rounded pt-3 mobile-active">
+                <a href="/">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-home"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Home</p>
+                </a>
+            </div>
+            <div class="d-block col-2 rounded2 pt-3" style="margin: 0 1.9em;">
+                <a href="#menu">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-th-large"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Menu</p>
+                </a>
+            </div>
+            <div class="d-block col-2 rounded2 pt-3">
+                <a href="./login.html">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-user"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Account</p>
+                </a>
+            </div>
+        </div>
+        <main>
+          <div class=" " data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+            <a href="#">
+                <p class="more">See more...</p>    
+            </a>
+          </div>  
+
+             <!-- Pop up stuff starts here -->
+        <!-- <div class="position-absolute position-fixed" style="bottom: 5em; right: 1em;">
+            <i class="fas fa-arrow-down my-5 d-none" style="font-size: 100px; transform: scaleY(1.7); color: #003087;"></i>
+          </div>
+          <div class=" position-absolute insightHive-float position-fixed" style="right: 2em; bottom: 2em;" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+              <i class="fas fa-comment-alt bg-blue-custom rounded-custom insightHive-float p-3" style="color: #ff6900;"></i>
+          </div> -->
+          <!-- Modal content starts here -->
+        <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 800px;">
+          <div class="modal-content" style="overflow-y: auto;">
+            <button type="button" class="btn-close p-2 m-2 position-absolute" style="right: 0;" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="container row justify-content-center p-md-5 p-1 mt-md-0 mt-4 mb-md-0 mb-4">
+                <div class="col-md-6 col-11 mb-md-0 mb-4">
+                    <img src="./assets/pics/other-0.jpg" class="img-fluid rounded3" alt="" style="filter: drop-shadow(2px 4px 16px black);">
+                </div>
+                <div class="col-md-6 col-11 pt-md-3">
+                    <p class="h2" style="font-family: cursive;">Food name</p>
+                    <p class="rating">3.8 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (17) ratings</p>
+                    <p>2000FCFA</p>
+                    <div class="description">
+                        <p class="h5">Description</p>
+                        <h6 class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Ab deserunt repellendus accusantium facere sapiente eveniet ducimus sunt, nulla quam, velit molestias illum ipsum nisi rem illo eos eaque neque tempora.</h6>
+                    </div>
+                    <button class="btn btn-orange w-100">Add to Cart</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal content ends here -->
+      </div>
+        </main>
+    </div>
+   
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script> 
+</body>
+</html>

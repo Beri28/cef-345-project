@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/fonts/css/all.css">
+</head>
+<body class="add-bg">
+    <div class=" shadow-2 container mt-4 justify-content-center">
+        <div class="header">
+            <a href="/userAccount2">
+                <i class="fas fa-home shadow-2 p-4 mt-2" style="border-radius: 50%; background-color: white;"></i>
+            </a>
+        </div>
+        <form action="/add" method="post" enctype="multipart/form-data" class="col-12 p-2 mt-2">
+            <div class="form-group mb-2">
+                <label for="name">Meal Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter meal name" autocapitalize="words">
+            </div>
+            <div class="form-group mb-2">
+                <label for="price">Meal Price</label>
+                <input type="number" name="price" class="form-control" placeholder="Enter meal price in FCFA">
+            </div>
+            <div class="form-group mb-2">
+                <label for="image">Meal Picture</label>
+                <input type="file" name="image" class="form-control" placeholder="Enter meal picture">
+            </div>
+            <div class="form-group mb-2">
+                <label for="description">Description</label>
+                <textarea class="form-control mt-2" name="description" id="description" cols="30" rows="5" placeholder="Enter any description thta will help customer know about the meal they ordering"></textarea>
+            </div>
+            <input type="submit" value="Add" class="btn btn-outline-orange-2 my-2 w-100">
+        </form>
+    </div>
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
