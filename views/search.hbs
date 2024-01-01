@@ -113,7 +113,7 @@
     <script>
         $(document).ready(function(){
             let allMeals=[];
-            fetch('http://localhost:5000/getMeals',{
+            fetch('https://dreamland-restaurant.onrender.com/getMeals',{
                         method:'GET'
                     }).then(res=>res.json()).then((data)=>{
                         data.pop()
@@ -160,7 +160,7 @@
                             element.addEventListener('click',()=>{
                                 let id2=element.previousElementSibling.previousElementSibling.textContent
                                 let cartItem;
-                                fetch(`http://localhost:5000/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
+                                fetch(`https://dreamland-restaurant.onrender.com/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
                                     let itemNum=document.querySelectorAll('.item-num')
                                     itemNum.forEach((element)=>{
                                         element.textContent=data 
