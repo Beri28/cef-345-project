@@ -314,7 +314,7 @@
                     let itemNum0;
                     function AppInit(){
                     let allMeals;
-                    fetch('http://localhost:5000/getMeals',{
+                    fetch('https://dreamland-restaurant.onrender.com/getMeals',{
                         method:'GET'
                     }).then(res=>res.json()).then((data)=>{
                         let totalQ=data.pop()
