@@ -329,6 +329,7 @@
                 method:'GET'
             }).then(res=>res.json())
             .then((data)=>{
+                let totalQty=data.pop()
                 allMeals=data
                 let all_meals=document.querySelector('.all-meals-container');
                 let ac=''
