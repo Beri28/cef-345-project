@@ -72,7 +72,7 @@ router.get('/userAccount',isLoggedIn,(req,res)=>{
         res.render('main',{name:req.user.name})
     }
     if(req.user.account_Type=='restaurant-manager'){
-        res.render('admin',{layout:'admin',name:req.session.name})
+        res.render('admin',{layout:'admin',name:req.user.name})
     }
 })
 router.get('/userAccount2',isLoggedIn,(req,res)=>{
