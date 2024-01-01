@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamland Restaurant - Search Results</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/fonts/css/all.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script  type="text/javascript" src="./assets/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="shadow-2 container position-relative mb-4">
+        <header class="">
+            <div class="row justify-content-center mt-4 py-2">
+                <div class="col-lg-2 col-md-3 col d-flex justify-content-between">
+                    <a href="/" class="logo-anchor">
+                        <h2 class="logo mb-0"><span class="d">D</span><span class="not-d">reamland</span></h2>
+                        <h6 style="margin-top: -6px;">
+                            <span style="color: orange; font-family: cursive;letter-spacing: .5em;">Restaurant</span>
+                        </h6>
+                    </a>
+                    <a href="{{origin}}" class="d-md-none d-flex align-items-center mobile-search-icon p-3" style="text-decoration: none;">
+                        <i class="fas fa-home"></i>
+                    </a>
+                    <a href="/cart" class="d-md-none d-flex align-items-center mobile-search-icon p-3 position-relative">
+                            <i class="fas fa-shopping-cart shadow-2"></i>
+                            <sup class="item-num position-absolute" style="top: 3.1em; right: 0;background-color: orange;padding: 0.7em 0.5em 0.78em 0.5em; border-radius: 50%;">{{qnty}}</sup>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-8 d-md-flex d-none justify-content-end align-content-center mb-0">
+                    <ul class="row w-75">
+                        <li class="col-lg-3 col-4"><a href="{{origin}}" class="links">Home</a></li>
+                        <li class="col-lg-3 col-4">Menu</li>
+                        <li class="col-lg3 col-4">Contact Us</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md d-md-flex d-none justify-content-lg-between justify-content-md-around align-content-center 3-h-sec">
+                    <div class="search-bar position-relative">
+                        <form action="/search" method="post">
+                            <input class="border-0 shadow-2 w-100" name="search" type="search" placeholder="Search" required>
+                            <button class="position-absolute fa-button-c" style="left: .8em; top: 1.1em;" type="submit">
+                                <i class="fas fa-search " ></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="cart position-relative mt-2">
+                        <!-- <i class="fas fa-shopping-cart shadow-2 active2"></i>
+                        <sup class="item-num position-absolute" style="top: -.6em; right: -.9em;">2</sup> -->
+                        <a href="/cart">
+                            <i class="fas fa-shopping-cart shadow-2"></i>
+                            <sup class="item-num position-absolute" style="top: -.6em; right: -.9em;">{{qnty}}</sup>
+                        </a>
+                    </div>
+                    <div class="account mt-2">
+                        <i class="fas fa-user shadow-2"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="mt-5">
+                <div class="row w-100 mt-5 justify-content-center">
+                    {{!-- {{#each results}}
+                    {{#each this}}
+                        <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative" style="margin-top:1em;margin-right:1em;">
+                                        <img src="./assets/images/{{this.image}}" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
+                                        <div class="border rounded3 food-info">
+                                            <p>{{this.name}}</p>
+                                            <p>{{this.rating}}</p>
+                                            <p>{{this.price}} FCFA</p>
+                                            <p style="display: none;">{{this._id}}</p>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                                <p class="more">See more...</p>    
+                                            </a>
+                                            <!--button class="btn btn-outline-orange-2" ><a href="/add-to-cart/${element._id}" class="add-button" style="color:orange;">Add to cart</a></button-->
+                                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                                        </div>
+                                    </div>
+                    {{/each}}
+                    {{/each}} --}}
+                    {{{results}}}
+                </div>
+            </div>
+            <!-- Modal content starts here -->
+            <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 800px;">
+              <div class="modal-content" style="overflow-y: auto;">
+                <!-- <button type="button" class="btn-close p-2 m-2 position-absolute" style="right: 0;" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="container row justify-content-center p-md-5 p-1 mt-md-0 mt-4 mb-md-0 mb-4">
+                    <div class="col-md-6 col-11 mb-md-0 mb-4">
+                        <img src="./assets/pics/other-0.jpg" class="img-fluid rounded3" alt="" style="filter: drop-shadow(2px 4px 16px black);">
+                    </div>
+                    <div class="col-md-6 col-11 pt-md-3">
+                        <p class="h2" style="font-family: cursive;">Food name</p>
+                        <p class="rating">3.8 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (17) ratings</p>
+                        <p>2000FCFA</p>
+                        <div class="description">
+                            <p class="h5">Description</p>
+                            <h6 class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Ab deserunt repellendus accusantium facere sapiente eveniet ducimus sunt, nulla quam, velit molestias illum ipsum nisi rem illo eos eaque neque tempora.</h6>
+                        </div>
+                        <button class="btn btn-orange w-100">Add to Cart</button>
+                    </div>
+                </div> -->
+              </div>
+            </div>
+            <!-- Modal content ends here -->
+            </div>
+        </main>
+    </div>
+    <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script>
+        $(document).ready(function(){
+            let allMeals=[];
+            fetch('http://localhost:5000/getMeals',{
+                        method:'GET'
+                    }).then(res=>res.json()).then((data)=>{
+                        data.pop()
+                        allMeals=data
+                    }).then(()=>{
+                        let more=document.querySelectorAll('.more')
+                        let modal_content=document.querySelector('.modal-content')
+                        for(let i=0;i<more.length;i++){
+                            more[i].addEventListener('click',()=>{
+                                let id=more[i].parentElement.previousElementSibling.textContent
+                                let results;
+                                for(let i=0;i<allMeals.length;i++){
+                                    if(allMeals[i]._id==id){
+                                        results=allMeals[i]
+                                        break;
+                                    }
+                                }
+                                modal_content.innerHTML=`
+                                <button type="button" class="btn-close p-2 m-2 position-absolute" style="right: 0;" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <div class="container row justify-content-center p-md-5 p-1 mt-md-0 mt-4 mb-md-0 mb-4">
+                                    <div class="col-md-6 col-11 mb-md-0 mb-4">
+                                        <img src="./assets/images/${results.image}" class="img-fluid rounded3" alt="" style="filter: drop-shadow(2px 4px 16px black);">
+                                    </div>
+                                    <div class="col-md-6 col-11 pt-md-3">
+                                        <p class="h2" style="font-family: cursive;">${results.name}</p>
+                                        <p class="rating">Rating ${results.rating} <span class="stars"></span> (${results.rated_by} ratings)</p>
+                                        <p>${results.price} FCFA</p>
+                                        <div class="description">
+                                            <p class="h5">Description</p>
+                                            <h6 class="text-muted">
+                                                ${results.description}
+                                            </h6>
+                                        </div>
+                                        <button class="btn btn-orange w-100">Add to Cart</button>
+                                    </div>
+                                </div>
+                                ` 
+                            })
+                        }
+                    
+                    })
+                    let addButtons=document.querySelectorAll('.add-2-cart')
+                        addButtons.forEach(element=>{
+                            element.addEventListener('click',()=>{
+                                let id2=element.previousElementSibling.previousElementSibling.textContent
+                                let cartItem;
+                                fetch(`http://localhost:5000/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
+                                    let itemNum=document.querySelectorAll('.item-num')
+                                    itemNum.forEach((element)=>{
+                                        element.textContent=data 
+                                    })
+                                })
+                            })
+                        })
+        })
+    </script>
+</body>

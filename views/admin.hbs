@@ -317,11 +317,13 @@
                 caret_down3.classList.toggle('fa-caret-up')
                 document.querySelector('.all-meals-container').classList.toggle('d-none')
             })
-
+            function AppInit(){
+            let allMeals;
             fetch('http://localhost:5000/getMeals',{
                 method:'GET'
             }).then(res=>res.json())
             .then((data)=>{
+                allMeals=data
                 let all_meals=document.querySelector('.all-meals-container');
                 let ac=''
                 data.forEach(element=>{
@@ -346,11 +348,50 @@
                     `
                 })
                 all_meals.insertAdjacentHTML('beforeend',ac)
+                let more=document.querySelectorAll('.more')
+                        let modal_content=document.querySelector('.modal-content')
+                        for(let i=0;i<more.length;i++){
+                            more[i].addEventListener('click',()=>{
+                                let id=more[i].parentElement.previousElementSibling.textContent
+                                let results;
+                                for(let i=0;i<allMeals.length;i++){
+                                    if(allMeals[i]._id==id){
+                                        results=allMeals[i]
+                                        break;
+                                    }
+                                }
+                                // allMeals.forEach(element=>{
+                                //     if(element._id==id) results=element
+                                // })
+                                modal_content.innerHTML=`
+                                <button type="button" class="btn-close p-2 m-2 position-absolute" style="right: 0;" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <div class="container row justify-content-center p-md-5 p-1 mt-md-0 mt-4 mb-md-0 mb-4">
+                                    <div class="col-md-6 col-11 mb-md-0 mb-4">
+                                        <img src="./assets/images/${results.image}" class="img-fluid rounded3" alt="" style="filter: drop-shadow(2px 4px 16px black);">
+                                    </div>
+                                    <div class="col-md-6 col-11 pt-md-3">
+                                        <p class="h2" style="font-family: cursive;">${results.name}</p>
+                                        <p class="rating">Rating ${results.rating} <span class="stars"></span> (${results.rated_by} ratings)</p>
+                                        <p>${results.price} FCFA</p>
+                                        <div class="description">
+                                            <p class="h5">Description</p>
+                                            <h6 class="text-muted">
+                                                ${results.description}
+                                            </h6>
+                                        </div>
+                                        <button class="btn btn-orange w-100">Add to Cart</button>
+                                    </div>
+                                </div>
+                                ` 
+                            })
+                        }
             })
+            }
+            AppInit()
             document.querySelector('.shopping-cart').addEventListener('click',()=>{
-                        $('.not-cart').hide()
-                        $('.cart').removeClass('d-none')
-                    })
+                $('.not-cart').hide()
+                $('.cart').removeClass('d-none')
+            })
         })
     </script>
 </body>

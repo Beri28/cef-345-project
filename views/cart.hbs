@@ -20,13 +20,13 @@
                             <span style="color: orange; font-family: cursive;letter-spacing: .5em;">Restaurant</span>
                         </h6>
                     </a>
-                    <a href="index.html" class="d-md-none d-flex align-items-center mobile-search-icon p-3" style="text-decoration: none;">
+                    <a href="{{origin}}" class="d-md-none d-flex align-items-center mobile-search-icon p-3" style="text-decoration: none;">
                         <i class="fas fa-home"></i>
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-8 d-md-flex d-none justify-content-end align-content-center mb-0">
                     <ul class="row w-75">
-                        <li class="col-lg-3 col-4"><a href="/" class="links">Home</a></li>
+                        <li class="col-lg-3 col-4"><a href="{{origin}}" class="links">Home</a></li>
                         <li class="col-lg-3 col-4">Menu</li>
                         <li class="col-lg3 col-4">Contact Us</li>
                     </ul>
@@ -41,7 +41,7 @@
                         <sup class="item-num position-absolute" style="top: -.6em; right: -.9em;">2</sup> -->
                         <a href="./cart.html">
                             <i class="fas fa-shopping-cart shadow-2"></i>
-                            <sup class="item-num position-absolute" style="top: -.6em; right: -.9em;">0</sup>
+                            <sup class="item-num position-absolute" style="top: -.6em; right: -.9em;">{{qnty}}</sup>
                         </a>
                     </div>
                     <div class="account mt-2">
@@ -52,95 +52,10 @@
         </header>
         <main>
             <div class="cart-container">
-                <div class="row justify-content-center mt-4 pt-4">
-                    <div class="col-md-2 col-11 cart-img mb-4">
-                        <img src="./sample_pics/1701614964494.jpg" class="img-fluid rounded2 w-100" alt="">
-                    </div>
-                    <div class="col-md-9 col-11 d-flex align-content-md-center">
-                        <div class="row align-content-md-center w-100 mb-5" style="">
-                            <div class="col-md-3 col-8">
-                                <p style="font-weight: bold; margin-bottom: .5em;">${element}</p>
-                                <p class="text-muted" style="line-height: 0;">Add-ons</p>
-                            </div>
-                            <div class="col-md-3 col-3 d-flex justify-content-md-center justify-content-end text-muted"><span class="d-none og-amt">2000</span><span class="amt">2000</span>FCFA</div>
-                            <div class="col-md-3 col-6">
-                                <button class="btn btn-outline-orange minus">-</button>
-                                <button class="btn btn-outline-orange qnty">1</button>
-                                <button class="btn btn-outline-orange add">+</button>
-                            </div>
-                            <div class="col-md-2 col-6 shadow-2 d-flex justify-content-center p-3 delete-icon">
-                                <i class="fas fa-trash-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center mt-4 pt-4">
-                        <div class="col-md-2 col-11 cart-img mb-4">
-                            <img src="./sample_pics/1701614964494.jpg" class="img-fluid rounded2 w-100" alt="">
-                        </div>
-                        <div class="col-md-9 col-11 d-flex align-content-md-center">
-                            <div class="row align-content-md-center w-100 mb-5" style="">
-                                <div class="col-md-3 col-8">
-                                    <p style="font-weight: bold; margin-bottom: .5em;">${element}</p>
-                                    <p class="text-muted" style="line-height: 0;">Add-ons</p>
-                                </div>
-                                <div class="col-md-3 col-3 d-flex justify-content-md-center justify-content-end text-muted"><span class="d-none og-amt">2000</span><span class="amt">2000</span>FCFA</div>
-                                <div class="col-md-3 col-6">
-                                    <button class="btn btn-outline-orange minus">-</button>
-                                    <button class="btn btn-outline-orange qnty">1</button>
-                                    <button class="btn btn-outline-orange add">+</button>
-                                </div>
-                                <div class="col-md-2 col-6 shadow-2 d-flex justify-content-center p-3 delete-icon">
-                                    <i class="fas fa-trash-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                </div>
+                
+                
             </div>
-            <!-- <div class="row justify-content-center mt-4 pt-4">
-                <div class="col-md-2 col-11 cart-img mb-4">
-                    <img src="./sample_pics/1701614964494.jpg" class="img-fluid rounded2 w-100" alt="">
-                </div>
-                <div class="col-md-9 col-11 d-flex align-content-md-center">
-                    <div class="row align-content-md-center w-100 mb-5" style="">
-                        <div class="col-md-3 col-8">
-                            <p style="font-weight: bold; margin-bottom: .5em;">Plantains and Canda Sauce</p>
-                            <p class="text-muted" style="line-height: 0;">Add-ons</p>
-                        </div>
-                        <div class="col-md-3 col-3 d-flex justify-content-md-center justify-content-end text-muted">2000FCFA</div>
-                        <div class="col-md-3 col-6">
-                            <button class="btn btn-outline-orange">-</button>
-                            <button class="btn btn-outline-orange">1</button>
-                            <button class="btn btn-outline-orange">+</button>
-                        </div>
-                        <div class="col-md-2 col-6 shadow-2 d-flex justify-content-center p-3 delete-icon">
-                            <i class="fas fa-trash-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-4 pt-4">
-                <div class="col-md-2 col-11 cart-img mb-4">
-                    <img src="./sample_pics/1701614964494.jpg" class="img-fluid rounded2 w-100" alt="">
-                </div>
-                <div class="col-md-9 col-11 d-flex align-content-md-center">
-                    <div class="row align-content-md-center w-100 mb-5" style="">
-                        <div class="col-md-3 col-8">
-                            <p style="font-weight: bold; margin-bottom: .5em;">Plantains and Canda Sauce</p>
-                            <p class="text-muted" style="line-height: 0;">Add-ons</p>
-                        </div>
-                        <div class="col-md-3 col-3 d-flex justify-content-md-center justify-content-end text-muted">2000FCFA</div>
-                        <div class="col-md-3 col-6">
-                            <button class="btn btn-outline-orange">-</button>
-                            <button class="btn btn-outline-orange">1</button>
-                            <button class="btn btn-outline-orange">+</button>
-                        </div>
-                        <div class="col-md-2 col-6 shadow-2 d-flex justify-content-center p-3 delete-icon">
-                            <i class="fas fa-trash-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            
             <hr style="margin: 1rem 3.5em;">
             <div class="row justify-content-center mb-2">
                 <div class="col-11">
@@ -157,31 +72,29 @@
         </main>
     </div>
     <script>
-        fetch('http://localhost:5000/cartItem',{
-            method:'GET',
-            headers:{
-                'Accept':'application/json, text/plain, */*'
-            }
+        fetch('http://localhost:5000/cartItems',{
+            method:'GET'
         }).then(res=>res.json().then(data=>{
             console.log("----",data)
             let cartCont=document.querySelector('.cart-container');
             let ccc=''
-            data.forEach(element => {
+            for(let item in data[0]){
+                console.log(data[0][item].item)
                 ccc+=`
                 <div class="row justify-content-center mt-4 pt-4">
                 <div class="col-md-2 col-11 cart-img mb-4">
-                    <img src="./sample_pics/1701614964494.jpg" class="img-fluid rounded2 w-100" alt="">
+                    <img src="./assets/images/${data[0][item].item.image}" class="img-fluid rounded2 w-100" alt="">
                 </div>
                 <div class="col-md-9 col-11 d-flex align-content-md-center">
                     <div class="row align-content-md-center w-100 mb-5" style="">
                         <div class="col-md-3 col-8">
-                            <p style="font-weight: bold; margin-bottom: .5em;">${element}</p>
+                            <p style="font-weight: bold; margin-bottom: .5em;">${data[0][item].item.name}</p>
                             <p class="text-muted" style="line-height: 0;">Add-ons</p>
                         </div>
-                        <div class="col-md-3 col-3 d-flex justify-content-md-center justify-content-end text-muted"><span class="d-none og-amt">2000</span><span class="amt">2000</span>FCFA</div>
+                        <div class="col-md-3 col-3 d-flex justify-content-md-center justify-content-end text-muted"><span class="d-none og-amt">${data[0][item].price}</span><span class="amt">${data[0][item].price}</span>FCFA</div>
                         <div class="col-md-3 col-6">
                             <button class="btn btn-outline-orange minus">-</button>
-                            <button class="btn btn-outline-orange qnty">1</button>
+                            <button class="btn btn-outline-orange qnty">${data[0][item].qty}</button>
                             <button class="btn btn-outline-orange add">+</button>
                         </div>
                         <div class="col-md-2 col-6 shadow-2 d-flex justify-content-center p-3 delete-icon">
@@ -191,8 +104,9 @@
                 </div>
                 </div>
                 `
-            });
-            //cartCont.innerHTML=ccc;
+            }
+            
+            cartCont.innerHTML=ccc;
             let amt=document.querySelectorAll('.amt')
             const updateGrandTotal=async()=>{
                 let grandTotal=document.querySelector('.grand-total')

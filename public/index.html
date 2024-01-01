@@ -67,10 +67,10 @@
                         <a href="#" class="d-md-none d-md-flex d-none align-items-center mobile-search-icon p-3" style="text-decoration: none;">
                             <i class="fas fa-search"></i>
                         </a>
-                        <div class="d-md-none d-flex align-items-center mobile-search-icon p-3 position-relative shopping-cart" style="text-decoration: none;">
+                        <a href="/cart" class="d-md-none d-flex align-items-center mobile-search-icon p-3 position-relative shopping-cart" style="text-decoration: none;">
                             <i class="fas fa-shopping-cart"></i>
                             <sup class="item-num position-absolute item-num" style="top: 3em; right: -.1em; background-color: orange;padding: 0.7em 0.5em 0.78em 0.5em; border-radius: 50%;">0</sup>
-                        </div>
+                        </a>
                     </div>
                     <!-- <h2 class="logo mb-0"><span class="d">D</span><span class="not-d">reamland</span></h2>
                     <h6 style="margin-top: -6px;"><span style="color: orange; font-family: cursive;letter-spacing: .5em;">Restaurant</span></h6>
@@ -85,14 +85,18 @@
                 </div>
                 <div class="col-lg-3 col-md d-md-flex d-none justify-content-lg-between justify-content-md-around align-content-center 3-h-sec">
                     <div class="search-bar position-relative">
-                        <input class="border-0 shadow-2 w-100" type="search" placeholder="Search">
-                        <i class="fas fa-search position-absolute" style="left: .8em;"></i>
+                        <form action="/search" method="post">
+                            <input class="border-0 shadow-2 w-100" name="search" type="search" placeholder="Search" required>
+                            <button class="position-absolute fa-button-c" style="left: .8em; top: 1.1em;" type="submit">
+                                <i class="fas fa-search " ></i>
+                            </button>
+                        </form>
                     </div>
                     <div class="cart position-relative mt-2">
-                        <div class="shopping-cart01">
+                        <a href="/cart" class="shopping-cart01">
                             <i class="fas fa-shopping-cart shadow-2"></i>
                             <sup class="item-num position-absolute" style="top: -.6em; right: -.9em;">0</sup>
-                        </div>
+                        </a>
                     </div>
                     <div class="account mt-2">
                         <a href="/userAccount">
@@ -104,7 +108,7 @@
             <div class="row justify-content-center my-3 d-md-none d-flex">
                 <form action="/search" method="post" class="d-flex">
                     <div class="form-group position-relative " style="width: 90%;">
-                        <input type="search" class="form-control px-5" placeholder="Enter dish name" style="background-color: #efd19a;">
+                        <input type="search" class="form-control px-5" name="search" placeholder="Enter dish name" style="background-color: #efd19a;">
                         <i class="fas fa-search position-absolute" style=" top: .8em; left: 1em; color: gray;"></i>
                     </div>
                     <button class="btn btn-outline-orange mx-2"><i class="fas fa-search"></i></button>
@@ -184,188 +188,8 @@
                     <p class="d-md-none" style="color: orange;">See all</p>
                 </div>
                 <div class="menu-mobile d-flex w-100 mt-2">
-                    <!-- <div class="col-lg-3 col-7 rounded3 py-3 mb-lg-2 mb-1 position-relative">
-                        <img src="./assets/pics/kati-kati-cameroon.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
-                        <div class="border rounded3 food-info">
-                            <p>Kati-Kati</p>
-                            <p>With --</p>
-                            <p>2000XCFA</p>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
-                                <p class="more">See more...</p>    
-                            </a>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3  col-7 rounded3 py-3  mb-lg-2 mb-1 position-relative">
-                        <img src="./assets/pics/download (1).jpeg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
-                        <div class="border rounded3 food-info">
-                            <p>Garri</p>
-                            <p>With groundnut</p>
-                            <p>2000XCFA</p>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
-                                <p class="more">See more...</p>    
-                            </a>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-7 rounded3 py-3  mb-lg-2 mb-1 position-relative">
-                        <img src="./assets/pics/SauceJaune.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
-                        <div class="border rounded3 food-info">
-                            <p>Achu</p>
-                            <p>With Canda</p>
-                            <p>2000XCFA</p>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
-                                <p class="more">See more...</p>    
-                            </a>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-7 rounded3 py-3 mb-lg-2 mb-1 position-relative">
-                        <img src="./assets/pics/kati-kati-cameroon.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
-                        <div class="border rounded3 food-info">
-                            <p>Kati-Kati</p>
-                            <p>With --</p>
-                            <p>2000XCFA</p>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
-                                <p class="more">See more...</p>    
-                            </a>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-7 rounded3 py-3  mb-lg-2 mb-1 position-relative">
-                        <img src="./assets/pics/download (1).jpeg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
-                        <div class="border rounded3 food-info">
-                            <p>Garri</p>
-                            <p>With groundnut</p>
-                            <p>2000XCFA</p>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
-                                <p class="more">See more...</p>    
-                            </a>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-7 rounded3 py-3  mb-lg-2 mb-1 position-relative">
-                        <img src="./assets/pics/SauceJaune.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
-                        <div class="border rounded3 food-info">
-                            <p>Achu</p>
-                            <p>With Canda</p>
-                            <p>2000XCFA</p>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
-                                <p class="more">See more...</p>    
-                            </a>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div> -->
                 </div>
             </div>
-            <!-- <div id="carouselExampleCaptions" class="todays-promo-user todays-promo-user-mobile carousel slide pointer-event col d-md-none mt-3" data-bs-ride="cariusel" id="menu" > put data-bs-ride="cariusel" after class for autoslide change
-                <div class="col d-flex justify-content-md-center justify-content-between mx-3" style="margin-bottom: 2em;">
-                    <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Menu</h3>
-                    <p class="d-md-none" style="color: orange;">See all</p>
-                </div>
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-                </div>
-                <div class="carousel-inner" style="border-bottom: none;">
-                  <div class="carousel-item">
-                    <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
-                        <img src="./assets/pics/achombo-2.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                        <div class="border rounded3 carousel-food-info">
-                            <p>Achombo</p>
-                            <p>With Fish/Mayonnaisse</p>
-                            <p>2000XCFA</p>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item active" style="border-bottom: none;">
-                    <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
-                        <img src="./assets/pics/Ndole-1-960x1199-1.png" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                        <div class="border rounded3 carousel-food-info">
-                            <p>Ndole</p>
-                            <p>With Goat meat</p>
-                            <p>2000XCFA</p>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item" style="border-bottom: none;">
-                    <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
-                        <img src="./assets/pics/other-0.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                        <div class="border rounded3 carousel-food-info">
-                            <p>Poulet DJ</p>
-                            <p>With Chicken</p>
-                            <p>2000XCFA</p>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true" style="color: black; background-color: black;"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true" style="color: black; background-color: black;"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <div id="carouselExampleCaptions2" class="todays-promo-user todays-promo-user-mobile carousel slide pointer-event col d-md-none mt-3" > put data-bs-ride="cariusel" after class for autoslide change
-                <div class="col d-flex justify-content-md-center justify-content-between mx-3" style="margin-bottom: 2em;">
-                    <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Promo</h3>
-                    <p class="d-md-none" style="color: orange;">See all</p>
-                </div>
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-                </div>
-                <div class="carousel-inner" style="border-bottom: none;">
-                  <div class="carousel-item">
-                    <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
-                        <img src="./assets/pics/achombo-2.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                        <div class="border rounded3 carousel-food-info">
-                            <p>Achombo</p>
-                            <p>With Fish/Mayonnaisse</p>
-                            <p>2000XCFA</p>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item active" style="border-bottom: none;">
-                    <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
-                        <img src="./assets/pics/Ndole-1-960x1199-1.png" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                        <div class="border rounded3 carousel-food-info">
-                            <p>Ndole</p>
-                            <p>With Goat meat</p>
-                            <p>2000XCFA</p>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item" style="border-bottom: none;">
-                    <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
-                        <img src="./assets/pics/other-0.jpg" class="position-absolute w-50 rounded-circle shadow-2 carousel-food-pic" alt="">
-                        <div class="border rounded3 carousel-food-info">
-                            <p>Poulet DJ</p>
-                            <p>With Chicken</p>
-                            <p>2000XCFA</p>
-                            <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true" style="color: black; background-color: black;"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true" style="color: black; background-color: black;"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-            </div> -->
             <div class="testimonials row justify-content-center">
                 <div class="d-flex justify-content-center">
                     <p class="h3 pb-2" style="border-bottom: 2px solid orange;">Testimonials</p>
@@ -395,21 +219,6 @@
                 </div>
                 <!-- <div class="col-5"></div> -->
             </div>
-            <!-- <div class="row">
-                <div class="col-md-4 col-10 dialog-box">
-                    <div class="dialog-top">
-                        <h3>Janice</h3>
-                    </div>
-                    <div class="dialog-body row">
-                        <form action="">
-                            <div class="message-input form-group">
-                                <input class="form-control" type="text" name="message" id="message" placeholder="Enter message" style="border-bottom-left-radius: 20px; border-top-right-radius: 0; border-bottom-right-radius: 0;">
-                                <button class="btn btn-orange message-send-btn"><i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
             <!-- Modal content starts here -->
             <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true" style="display: none;">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 800px;">
@@ -437,7 +246,7 @@
             </div>
         </main>
     </div>
-    <div class="shadow-2 container position-relative mb-4 cart d-none">
+    <div class="shadow-2 container position-relative mb-4 cart d-none" >
         <div class="header">
             <div class="row justify-content-center mt-4 py-2">
                 <div class="col-lg-2 col-md-3 col d-flex justify-content-between">
@@ -501,44 +310,18 @@
   <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script> 
   <script src="./assets/js/index.js"></script>
   <script>
-                // let cart=[]
-                // let cartNum
-                // let item=$('.add-2-cart');
-                // let itemNum=document.querySelector('.item-num');
-                // for(let i=0;i<item.length;i++){
-                //     item[i].addEventListener('click',()=>{
-                //     let parent=item[i].parentElement;
-                //     let mealName=parent.firstChild.nextSibling.innerText;
-                //     fetch('http://localhost:5000/cartItem',{
-                //         method:'POST',
-                //         headers:{
-                //             'Accept':'applicaiton/json, text/plain,*/*',
-                //             'Content-type':'application/json'
-                //         },
-                //         body:JSON.stringify({item:mealName})
-
-                //     }).then(res=>res.json()).then(()=>{
-                //         console.log("Saved cart item succesfully")
-                //     }).then(()=>{
-                //         if(cart.includes(mealName)){
-                //     return;
-                //     }
-                //     else{
-                //         cart.push(mealName)
-                //         cartNum=itemNum.textContent++;
-                //     }
-                // let itemNum=document.querySelector('.item-num');
-                // console.log(itemNum)
-                // itemNum.textContent=cartNum
-                // })
-                //     })
-                // }
                 $(document).ready(function(){
+                    let itemNum0;
+                    function AppInit(){
                     let allMeals;
                     fetch('http://localhost:5000/getMeals',{
                         method:'GET'
                     }).then(res=>res.json()).then((data)=>{
-                        console.log(data)
+                        let totalQ=data.pop()
+                        let itemNum1=document.querySelectorAll('.item-num')
+                                    itemNum1.forEach((element)=>{
+                                        element.textContent=totalQ
+                                    })
                         allMeals=data
                         let menu_mobile=document.querySelector('.menu-mobile')
                         let menu=document.querySelector('.menu-contents')
@@ -570,6 +353,7 @@
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
                                         <p class="more">See more...</p>    
                                     </a>
+                                    <!--button class="btn btn-outline-orange-2" ><a href="/add-to-cart/${element._id}" class="add-button" style="color:orange;">Add to cart</a></button-->
                                     <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
                                 </div>
                             </div>
@@ -589,10 +373,6 @@
                                         break;
                                     }
                                 }
-                                // allMeals.forEach(element=>{
-                                //     if(element._id==id) results=element
-                                // })
-                                console.log(results)
                                 modal_content.innerHTML=`
                                 <button type="button" class="btn-close p-2 m-2 position-absolute" style="right: 0;" data-bs-dismiss="modal" aria-label="Close"></button>
                                 <div class="container row justify-content-center p-md-5 p-1 mt-md-0 mt-4 mb-md-0 mb-4">
@@ -615,25 +395,30 @@
                                 ` 
                             })
                         }
-                    }).then((data)=>{
-                        
+                    }).then(()=>{
+                        let addButtons=document.querySelectorAll('.add-2-cart')
+                        addButtons.forEach(element=>{
+                            element.addEventListener('click',()=>{
+                                let id2=element.previousElementSibling.previousElementSibling.textContent
+                                let cartItem;
+                                fetch(`http://localhost:5000/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
+                                    let itemNum=document.querySelectorAll('.item-num')
+                                    itemNum.forEach((element)=>{
+                                        element.textContent=data 
+                                    })
+                                })
+                            })
+                        })
                     })
-                    document.querySelector('.shopping-cart').addEventListener('click',()=>{
-                        $('.not-cart').hide()
-                        $('.cart').removeClass('d-none')
-                    })
-                    document.querySelector('.shopping-cart01').addEventListener('click',()=>{
-                        $('.not-cart').hide()
-                        $('.cart').removeClass('d-none')
-                    })
-                    // document.querySelector('.shopping-cart20').addEventListener('click',()=>{
-                    //     $('.cart').addClass('d-none')
-                    //     $('.not-cart').toggle()
-
+                    }
+                    AppInit();
+                    // document.querySelector('.shopping-cart').addEventListener('click',()=>{
+                    //     $('.not-cart').hide()
+                    //     $('.cart').removeClass('d-none')
                     // })
-                    // document.querySelector('.shopping-cart21').addEventListener('click',()=>{
-                    //     $('.cart').addClass('d-none')
-                    //     $('.not-cart').toggle()
+                    // document.querySelector('.shopping-cart01').addEventListener('click',()=>{
+                    //     $('.not-cart').hide()
+                    //     $('.cart').removeClass('d-none')
                     // })
                 })
   </script>

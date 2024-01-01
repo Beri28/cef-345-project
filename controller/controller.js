@@ -1,5 +1,6 @@
 const userSchema=require('../model/user')
 const mealSchema=require('../model/meal')
+const bcrypt=require('bcrypt')
 
 
 const saveNewUser=async (req,res)=>{
@@ -36,20 +37,28 @@ const saveNewMeal=async (req,res)=>{
 const getMeals= async (req,res)=>{
     try {
         let results=await mealSchema.find({});
-        res.send(results)        
+        if(req.session.cart){
+            results.push(req.session.cart.totalQty)
+            res.send(results)
+        }
+        else{
+            results.push(0)
+            res.send(results)        
+        }
     } catch (error) {
         res.send(error)
     }
 }
 
 const loginUser=async (req,res)=>{
-    console.log(req.body)
+    console.log('login:',req.body)
     let oldUser=await userSchema.findOne({email:req.body.email});
     if(!oldUser){
         console.log("User with cred doesn't exist")
         res.redirect('./register.html')
     }else{
-        if(req.body.password==oldUser.password){
+        bcrypt.compareSync(req.body.password,oldUser.password)
+        if(bcrypt.compareSync(req.body.password,oldUser.password)){
             req.session.isAuth=true;
             req.session.name=oldUser.name
             //req.session.account_Type=oldUser.account_Type
@@ -67,11 +76,11 @@ const loginUser=async (req,res)=>{
     }
 }
 const logoutUser=async(req,res)=>{
-    req.session.destroy((err)=>{
+    req.logout((err)=>{
         if(err){
             throw(err)
         }
-        res.redirect('./index.html')
+        res.redirect('/')
     })
 }
 

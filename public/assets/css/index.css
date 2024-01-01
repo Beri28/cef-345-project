@@ -90,6 +90,14 @@ ul li.col-3{
     padding: .5em 0;
     padding-left: 2em;
 }
+.fa-button-c{
+    background: none;
+    border: none;
+    padding: 0px;
+}
+.fa-button-c:hover{
+    cursor: pointer;
+}
 .shadow-2{
     box-shadow:0 .5rem 1rem rgba(0,0,0,.25)!important
 }
@@ -180,6 +188,9 @@ ul li.col-3{
 }
 .food-info button{
     border-radius: 20px 0;
+}
+.add-button:hover{
+    color: black!important;
 }
 .more{
     color: var(--primary-color);
@@ -283,6 +294,7 @@ ul li.col-3{
 }
 .cart-img img{
     height: 12em;
+    filter: drop-shadow(2px 4px 16px black);
 }
 
 /* Styling for cart page ends here */

@@ -41,10 +41,16 @@
         </div>
         <div class="row justify-content-center mt-4 py-2">
             <div class="col-8 d-flex align-items-md-center">
-                <div class="form-group position-relative d-md-flex d-none " style="margin-left: 3em;">
-                    <input type="search" class="form-control px-5 rounded3 shadow-2" style="background-color: rgba(255, 166, 0,.5);" placeholder="Search dish">
-                    <i class="fas fa-search position-absolute text-muted" style="top: .75em; left: 1.4em;"></i>
-                </div>
+                <form action="/search" method="post">
+                    <div class="form-group position-relative d-md-flex d-none " style="margin-left: 3em;">
+                    <input type="search" class="form-control  px-5 rounded3 shadow-2" name="search" style="background-color: rgba(255, 166, 0,.5);" placeholder="Search dish" required>
+                    <button class="fas fa-search position-absolute text-muted fa-button-c" style="top: .75em; left: 1.4em;" type="submit"></button>
+                    </div>
+                            {{!-- <!--input class="border-0 shadow-2 w-100" name="search" type="search" placeholder="Search" required="">
+                            <button class="position-absolute fa-button-c" style="left: .8em; top: 1.1em;" type="submit">
+                                <i class="fas fa-search "></i>
+                            </button--> --}}
+                </form>
                 <div class="d-md-none d-flex justify-content-between">
                         <a href="#" class="" style="width: 10%;">
                             <i class="fas fa-user shadow-2 p-3" style="border-radius: 50%; background-color:#efd19a; background-color: orange;"></i>
@@ -55,10 +61,10 @@
                         </div>
                 </div>
             </div>
-            <div class="col-2 d-flex justify-content-end align-items-md-center align-items-start position-relative shopping-cart">
+            <a href="/cart" class="col-2 d-flex justify-content-end align-items-md-center align-items-start position-relative shopping-cart">
                 <i class="fas fa-shopping-cart notifications-icon shadow-2 p-3"></i>
-                <sub class="notifications-num position-absolute">8</sub>
-            </div>
+                <sub class="notifications-num position-absolute item-num">0</sub>
+            </a>
             <div class="col-2 d-flex justify-content-md-center justify-content-end align-items-md-center align-items-start position-relative">
                 <i class="fas fa-bell notifications-icon shadow-2 p-3"></i>
                 <sub class="notifications-num position-absolute">8</sub>
@@ -67,7 +73,7 @@
         <div class="row justify-content-center my-3 d-md-none d-flex">
                 <form action="/search" method="post" class="d-flex" style="margin-left:.7em; margin-bottom:1em;">
                     <div class="form-group position-relative " style="width: 90%;">
-                        <input type="search" class="form-control px-5" placeholder="Enter dish name" style="background-color: #efd19a;">
+                        <input type="search" class="form-control px-5" name="search" placeholder="Enter dish name" style="background-color: #efd19a;">
                         <i class="fas fa-search position-absolute" style=" top: .8em; left: 1em; color: gray;"></i>
                     </div>
                     <button class="btn btn-outline-orange mx-2"><i class="fas fa-search"></i></button>
@@ -315,12 +321,15 @@
                 caret_down.classList.toggle('fa-caret-up')
                 document.querySelector('.order-history-details').classList.toggle('d-none')
             })
-            ///////
-            let allMeals;
+            function AppInit(){
+                let allMeals;
                     fetch('http://localhost:5000/getMeals',{
                         method:'GET'
                     }).then(res=>res.json()).then((data)=>{
+                        let totalQ=data.pop()
                         allMeals=data
+                        let itemNum1=document.querySelector('.item-num')
+                        itemNum1.textContent=totalQ
                         let menu_mobile=document.querySelector('.menu-mobile')
                         let menu=document.querySelector('.menu-contents')
                         let mc=''
@@ -336,6 +345,7 @@
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
                                     <p class="more">See more...</p>    
                                 </a>
+                                <!--button class="btn btn-outline-orange-2" ><a href="/add-to-cart/${element._id}" class="add-button" style="color:orange;">Add to cart</a></button-->
                                 <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
                                 </div>
                             </div>
@@ -351,6 +361,7 @@
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
                                         <p class="more">See more...</p>    
                                     </a>
+                                    <!--button class="btn btn-outline-orange-2" ><a href="/add-to-cart/${element._id}" class="add-button" style="color:orange;">Add to cart</a></button-->
                                     <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
                                 </div>
                             </div>
@@ -397,17 +408,26 @@
                             })
                         }
                     }).then((data)=>{
-                        
+                        let addButtons=document.querySelectorAll('.add-2-cart')
+                        addButtons.forEach(element=>{
+                            element.addEventListener('click',()=>{
+                                let id2=element.previousElementSibling.previousElementSibling.textContent
+                                let cartItem;
+                                fetch(`http://localhost:5000/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
+                                    let itemNum=document.querySelectorAll('.item-num')
+                                    itemNum.forEach((element)=>{
+                                        element.textContent=data 
+                                    })
+                                })
+                            })
+                        })
                     })
-
-            document.querySelector('.shopping-cart').addEventListener('click',()=>{
-                        $('.not-cart').hide()
-                        $('.cart').removeClass('d-none')
-                    })
-                    //document.querySelector('.shopping-cart01').addEventListener('click',()=>{
+            }
+            AppInit()
+            //document.querySelector('.shopping-cart').addEventListener('click',()=>{
                         //$('.not-cart').hide()
                         //$('.cart').removeClass('d-none')
-                    //})
+            //})
         })  
     </script>
     <script src="./assets/js/index.js"></script>
