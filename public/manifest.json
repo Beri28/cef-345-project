@@ -2,13 +2,13 @@
     "name":"Dreamland Restaurant",
     "short_name":"Dreamland",
     "start_url":"/",
-    "background_color":"#ffa500",
+    "background_color":"#ffffff",
     "theme_color":"#ffa500",
     "display":"standalone",
     "icons":[
         {
             "src":"assets/app_pics/2-logo-2.png",
-            "sizes":"192x192",
+            "sizes":"720x720",
             "type":"image/png",
             "purpose": "any maskable"
         },
