@@ -74,7 +74,7 @@ const upload=multer({storage:storage})
 
 //function to check if user is logged in and if user is restaurant manager , before saving new meal
 const isAdmin=(req,res,next)=>{
-    if(req.isAuthenticated() && req.user.account_Type=='restaurant-manager'){
+    if(req.isAuthenticated() && (req.user.account_Type=='restaurant-manager')){
         return next()
     }else{
         if(!req.isAuthenticated()){
