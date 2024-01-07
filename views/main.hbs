@@ -451,7 +451,7 @@ drift.load('svyyafgtma2f');
                             })
                         })
                     }).then(()=>{
-                        fetch('http://localhost:5000/paymentDetails',{
+                        fetch('https://dreamland-restaurant.onrender.com/paymentDetails',{
                             method:"GET"
                         }).then((res=>res.json())).then((data)=>{
                             let ohd=document.querySelector('.order-history-details')
