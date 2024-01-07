@@ -20,7 +20,7 @@
     <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script> 
     <script>
         $(document).ready(function(){
-            fetch('http://localhost:5000/getManagers',{
+            fetch('https://dreamland-restaurant.onrender.com/getManagers',{
                 method:"GET"
             }).then(res=>res.json()).then((data)=>{
                 console.log(data)
