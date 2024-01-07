@@ -161,7 +161,7 @@ drift.load('svyyafgtma2f');
                     let sentQnty=qnty[i].textContent
                     let sentAmt=amt[i].textContent;
                     let sentTotalAmt=document.querySelector('.grand-total').textContent
-                    fetch('http://localhost:5000/updateCart',{
+                    fetch('https://dreamland-restaurant.onrender.com/updateCart',{
                         method:'POST',
                         headers:{
                             'Accept':'applicaiton/json, text/plain,*/*',
@@ -177,7 +177,7 @@ drift.load('svyyafgtma2f');
                     if(qnty[i].textContent<=1){
                         amt[i].textContent=0
                         updateGrandTotal()
-                        fetch('http://localhost:5000/deleteCartItem',{
+                        fetch('https://dreamland-restaurant.onrender.com/deleteCartItem',{
                         method:'POST',
                         headers:{
                             'Accept':'applicaiton/json, text/plain,*/*',
@@ -197,7 +197,7 @@ drift.load('svyyafgtma2f');
                         let sentQnty=qnty[i].textContent
                         let sentAmt=amt[i].textContent;
                         let sentTotalAmt=document.querySelector('.grand-total').textContent
-                        fetch('http://localhost:5000/updateCart',{
+                        fetch('https://dreamland-restaurant.onrender.com/updateCart',{
                             method:'POST',
                             headers:{
                                 'Accept':'applicaiton/json, text/plain,*/*',
@@ -225,7 +225,7 @@ drift.load('svyyafgtma2f');
                 element.addEventListener('click',()=>{
                     //element.parentElement.parentElement.parentElement.classList.add('d-none')
                     let elId=element.parentElement.id
-                    fetch('http://localhost:5000/deleteCartItem',{
+                    fetch('https://dreamland-restaurant.onrender.com/deleteCartItem',{
                         method:'POST',
                         headers:{
                             'Accept':'applicaiton/json, text/plain,*/*',
