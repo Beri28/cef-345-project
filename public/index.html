@@ -12,6 +12,7 @@
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
     <link rel="manifest" href="./manifest.json">
     <link rel="apple-touch-icon" href="./assets/app_pics/logo-1.png">
+    <link rel="shortcut icon" href="./assets/app_pics/2-logo.png" type="image/x-icon">
     <!-- Start of Async Drift Code -->
 <script>
 "use strict";
@@ -341,7 +342,7 @@ drift.load('svyyafgtma2f');
                     let itemNum0;
                     function AppInit(){
                     let allMeals;
-                    fetch('https://dreamland-restaurant.onrender.com/getMeals',{
+                    fetch('https://dreamland-restaurant.onrender.com/getMeals/none',{
                         method:'GET'
                     }).then(res=>res.json()).then((data)=>{
                         let totalQ=data.pop()
