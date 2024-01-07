@@ -171,7 +171,9 @@ router.post('/register',passport.authenticate('local.signup',{
     failureRedirect:'/register',
     failureFlash:true
 }))
-
+router.get('/dv',(req,res)=>{
+    res.render('delivery',{layout:'delivery'})
+})
 router.get('/getMeals/:type',getMeals)
 router.post('/checkout',isLoggedIn,(req,res)=>{
     res.render('checkout',{layout:'checkout'})

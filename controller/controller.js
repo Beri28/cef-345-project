@@ -121,24 +121,28 @@ const logoutUser=async(req,res)=>{
 }
 const paymentDetails=async (req,res)=>{
     try {
-        paymentSchema.find({userId:req.user.id},(err,result)=>{
+        paymentSchema.findOne({userId:req.user.id},(err,result)=>{
             if(err){
                 console.log(err)
                 res.send("There was a db error")
                 return
             }
-            let mealName=''
-            mealSchema.find({_id:result[0].mealId},(err,result2)=>{
-                if(err){
-                    console.log(err)
-                    res.send("DB error")
-                    return
-                }
-                mealName=result2[0].name
-                result.meal_Name=mealName
-                // res.send({result:result,mealName:mealName})
-                res.send({undefined})
-            })
+            if((!result) || (result.mealId==undefined)){
+                res.send({})
+            }else{
+                let mealName=''
+                mealSchema.find({_id:result.mealId},(err,result2)=>{
+                    if(err){
+                        // res.send("DB error")
+                        // return
+                        throw(err)
+                    }
+                    mealName=result2[0].name
+                    result.meal_Name=mealName
+                    // res.send({result:result,mealName:mealName})
+                    res.send({undefined})
+                })
+            }
         })
         
     } catch (error) {

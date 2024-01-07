@@ -22,7 +22,7 @@ require('./config/passport')
 
 
 let cu='mongodb+srv://berinyuy28:berinyuy28.@cluster0.vb5vpsk.mongodb.net/dreamland'
-mongoose.connect(cu).then(()=>{
+mongoose.connect(process.env.URI).then(()=>{
     console.log("Successfully connected to db")
 }).catch(()=>{
     console.log("Couldn't connect to db");
@@ -49,7 +49,7 @@ app.use(session({
     resave:false,
     saveUninitialized:false,
     //store:store,
-    store:MongoStore.create({mongoUrl:cu}),
+    store:MongoStore.create({mongoUrl:process.env.URI}),
     cookie:{maxAge:180*60*1000}
 }))
 app.use(flash())

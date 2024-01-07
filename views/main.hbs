@@ -43,29 +43,37 @@ drift.load('svyyafgtma2f');
     <div class="shadow-2 container position-relative mb-5 pb-4 not-cart">
         <div class="row d-md-none d-flex justify-content-around mt-2 border-top border-bottom py-3 mobile-nav-menu" 
         style="position:fixed; bottom:1em; background-color: #efd19a; z-index: 10; width: 80%; margin-left: 1.7em; border-radius: 20px;">
-            <div class="d-block col-2 rounded pt-3 mobile-active">
-                <a href="#">
+            <div class="d-block col-3 rounded pt-3 hc mobile-active">
+                <a href="/userAccount">
                     <p class="mb-0 d-flex justify-content-center" >
                         <i class="fas fa-home"></i>
                     </p>
                     <p class="d-flex justify-content-center">Home</p>
                 </a>
             </div>
-            <div class="d-block col-2 rounded2 pt-3" style="margin: 0 1.9em;">
-                <a href="#menu">
-                    <p class="mb-0 d-flex justify-content-center" >
-                        <i class="fas fa-th-large"></i>
-                    </p>
-                    <p class="d-flex justify-content-center">Menu</p>
-                </a>
+            <div class="d-block col-3 rounded2 ac pt-3">
+                <div class="dropdown">
+                        <div  id="dropdownRightMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <p class="mb-0 d-flex justify-content-center" >
+                            <i class="fas fa-user"></i>
+                            </p>
+                            <p class="d-flex justify-content-center">Account</p>
+                        </div>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownRightMenuButton">
+                      <li><h6 class="dropdown-header">Select Option</h6></li>
+                      <li><a class="dropdown-item"  href="/logout">Logout</a></li>
+                      <li><a class="dropdown-item"  href="">Account Settings</a></li>
+                      <li><a class="dropdown-item"  href="">Contact Us</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="d-block col-2 rounded2 pt-3">
-                <a href="">
+            <div class="d-block col-2 rounded2 mc pt-3">
+                <div class="news-icon">
                     <p class="mb-0 d-flex justify-content-center" >
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-newspaper"></i>
                     </p>
-                    <p class="d-flex justify-content-center">Account</p>
-                </a>
+                    <p class="d-flex justify-content-center">News</p>
+                </div>
             </div>
         </div>
         <div class="row justify-content-center mt-4 py-2">
@@ -164,7 +172,7 @@ drift.load('svyyafgtma2f');
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownRightMenuButton">
                       <li><h6 class="dropdown-header">Select Option</h6></li>
                       <li><a class="dropdown-item"  href="/logout">Logout</a></li>
-                      {{!-- <li><a class="dropdown-item" href="#">Create New Menu</a></li> --}}
+                      {{!-- <!--li><a class="dropdown-item" href="#">Create New Menu</a></li--> --}}
                       <!-- <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="#">Separated link</a></li> -->
                     </ul>
@@ -229,21 +237,6 @@ drift.load('svyyafgtma2f');
                 <p class="d-md-none" style="color: orange;">See all</p>
             </div>
             <div class="row justify-content-around order-history-details gy-md-5">
-                {{!-- <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
-                    <p>Date : 12/07/2023</p>
-                    <p>Food Ordered : Ndole And Plantains</p>
-                    <button class="btn btn-outline-orange-2">View receipt</button>
-                </div>
-                <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
-                    <p>Date : 12/07/2023</p>
-                    <p>Food Ordered : Ndole And Plantains</p>
-                    <button class="btn btn-outline-orange-2">View receipt</button>
-                </div>
-                <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
-                    <p>Date : 12/07/2023</p>
-                    <p>Food Ordered : Ndole And Plantains</p>
-                    <button class="btn btn-outline-orange-2">View receipt</button>
-                </div> --}}
             </div>
         </div>
         <div class="bonuses row justify-content-center my-5">
@@ -352,7 +345,7 @@ drift.load('svyyafgtma2f');
             })
             function AppInit(){
                 let allMeals;
-                    fetch('https://dreamland-restaurant.onrender.com/getMeals',{
+                    fetch('http://localhost:5000/getMeals/none',{
                         method:'GET'
                     }).then(res=>res.json()).then((data)=>{
                         let totalQ=data.pop()
@@ -470,6 +463,16 @@ drift.load('svyyafgtma2f');
                             }
                             ohd.insertAdjacentHTML('beforeend',cohd)
                             console.log(data)
+                        })
+                        document.querySelector('.news-icon').addEventListener('click',()=>{
+                        document.querySelector('.hc').classList.remove('mobile-active')
+                        document.querySelector('.ac').classList.remove('mobile-active')
+                        document.querySelector('.mc').classList.toggle('mobile-active')
+                        })
+                        document.querySelector('.dropdown').addEventListener('click',()=>{
+                        document.querySelector('.hc').classList.remove('mobile-active')
+                        document.querySelector('.mc').classList.remove('mobile-active')
+                        document.querySelector('.ac').classList.toggle('mobile-active')
                         })
                     })
             }

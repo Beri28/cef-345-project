@@ -3,25 +3,22 @@
     "short_name":"Dreamland",
     "start_url":"/",
     "background_color":"#ffffff",
+    "description":"A food delivery app",
     "theme_color":"#ffa500",
     "display":"standalone",
     "icons":[
         {
-<<<<<<< HEAD
-            "src":"assets/app_pics/2-logo-1.png",
-            "sizes":"512x512",
-=======
             "src":"assets/app_pics/2-logo-2.png",
-            "sizes":"720x720",
->>>>>>> 889ae09b6017e5b151301d47b1af3bac7c7124e8
+            "sizes":"192x192",
             "type":"image/png",
-            "purpose": "any maskable"
+            "purpose": "maskable"
         },
         {
-            "src":"assets/app_pics/2-logo-3.png",
-            "sizes":"720x720",
+            "src":"assets/app_pics/2-logo-1.png",
+            "sizes":"512x512",
             "type":"image/png",
-            "purpose": "any maskable"
+            "purpose": "maskable"
         }
+
     ]
 }
