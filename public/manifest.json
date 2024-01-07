@@ -2,7 +2,7 @@
     "name":"Dreamland Restaurant",
     "short_name":"Dreamland",
     "start_url":"/",
-    "background_color":"#ffffff",
+    "background_color":linear-gradient(45deg,orange,#efd19a,white);,
     "description":"A food delivery app",
     "theme_color":"#ffa500",
     "display":"standalone",
