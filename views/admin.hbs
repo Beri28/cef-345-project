@@ -10,6 +10,34 @@
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="shortcut icon" href="./assets/app_pics/2-logo-1.png" type="image/x-icon">
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Start of Async Drift Code -->
+<script>
+"use strict";
+
+!function() {
+  var t = window.driftt = window.drift = window.driftt || [];
+  if (!t.init) {
+    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+    t.factory = function(e) {
+      return function() {
+        var n = Array.prototype.slice.call(arguments);
+        return n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+      var i = document.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(o, i);
+    };
+  }
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('svyyafgtma2f');
+</script>
+<!-- End of Async Drift Code -->
 </head>
 <body>
     <div class="shadow-2 container position-relative mb-4 pb-5 not-cart">
@@ -74,7 +102,7 @@
         <div class="row justify-content-center my-3 d-md-none d-flex">
                 <form action="/search" method="post" class="d-flex" style="margin-left:.7em; margin-bottom:1em;">
                     <div class="form-group position-relative " style="width: 90%;">
-                        <input type="search" class="form-control px-5" placeholder="Enter dish name" style="background-color: #efd19a;">
+                        <input type="search" class="form-control px-5" name="search" placeholder="Enter dish name" style="background-color: #efd19a;">
                         <i class="fas fa-search position-absolute" style=" top: .8em; left: 1em; color: gray;"></i>
                     </div>
                     <button class="btn btn-outline-orange mx-2"><i class="fas fa-search"></i></button>
@@ -301,11 +329,11 @@
             })
             function AppInit(){
             let allMeals;
-            fetch('http://localhost:5000/getMeals/none',{
+            fetch('https://dreamland-restaurant.onrender.com/getMeals',{
                 method:'GET'
             }).then(res=>res.json())
             .then((data)=>{
-                let totalQ=data.pop()
+                let totalQty=data.pop()
                 allMeals=data
                 let all_meals=document.querySelector('.all-meals-container');
                 let amd=document.querySelector('.all-meals-container2')
