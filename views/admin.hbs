@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/bootstrap/bootstrap-icons-1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./assets/fonts/css/all.css">
     <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="shortcut icon" href="./assets/app_pics/2-logo-1.png" type="image/x-icon">
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -41,10 +42,16 @@
         </div>
         <div class="row justify-content-center mt-4 py-2">
             <div class="col-8 d-flex align-items-md-center">
-                <div class="form-group position-relative d-md-flex d-none " style="margin-left: 3em;">
-                    <input type="search" class="form-control px-5 rounded3 shadow-2" style="background-color: rgba(255, 166, 0,.5);" placeholder="Search dish">
-                    <i class="fas fa-search position-absolute text-muted" style="top: .75em; left: 1.4em;"></i>
-                </div>
+                <form action="/search" method="post">
+                    <div class="form-group position-relative d-md-flex d-none " style="margin-left: 3em;">
+                    <input type="search" class="form-control  px-5 rounded3 shadow-2" name="search" style="background-color: rgba(255, 166, 0,.5);" placeholder="Search dish" required>
+                    <button class="fas fa-search position-absolute text-muted fa-button-c" style="top: .75em; left: 1.4em;" type="submit"></button>
+                    </div>
+                            {{!-- <!--input class="border-0 shadow-2 w-100" name="search" type="search" placeholder="Search" required="">
+                            <button class="position-absolute fa-button-c" style="left: .8em; top: 1.1em;" type="submit">
+                                <i class="fas fa-search "></i>
+                            </button--> --}}
+                </form>
                 <div class="d-md-none d-flex justify-content-between">
                         <a href="#" class="" style="width: 10%;">
                             <i class="fas fa-user shadow-2 p-3" style="border-radius: 50%; background-color:#efd19a; background-color: orange;"></i>
@@ -55,13 +62,13 @@
                         </div>
                 </div>
             </div>
-            <div class="col-2 d-flex justify-content-end align-items-md-center align-items-start position-relative shopping-cart">
+            <a href="/cart" class="col-2 d-flex justify-content-end align-items-md-center align-items-start position-relative shopping-cart">
                 <i class="fas fa-shopping-cart notifications-icon shadow-2 p-3"></i>
-                <sub class="notifications-num position-absolute">8</sub>
-            </div>
+                <sub class="notifications-num position-absolute item-num">0</sub>
+            </a>
             <div class="col-2 d-flex justify-content-md-center justify-content-end align-items-md-center align-items-start position-relative">
                 <i class="fas fa-bell notifications-icon shadow-2 p-3"></i>
-                <sub class="notifications-num position-absolute">8</sub>
+                <sub class="notifications-num position-absolute">0</sub>
             </div>
         </div>
         <div class="row justify-content-center my-3 d-md-none d-flex">
@@ -126,38 +133,13 @@
                 <p class="pt-2 px-1">More</p>
             </div>
         </div>
-        <div class="todays-promo-user todays-promo-user-desktop row d-none d-md-flex justify-content-around">
+        <div class="todays-promo-user todays-promo-user-desktop admin-menu-desktop row d-none d-md-flex justify-content-around">
             <div class="col-11 d-flex justify-content-md-center justify-content-between" style="margin-bottom: 6em;">
-                <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Promo</h3>
+                <h3 class="pb-2" style="border-bottom: 4px solid orange;">All Meals</h3>
                 <!-- <p class="d-md-none" style="color: orange;">See all</p> -->
             </div>
-            <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
-                <img src="./assets/pics/achombo-2.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
-                <div class="border rounded3 food-info">
-                    <p>Achombo</p>
-                    <p>With Fish/Mayonnaisse</p>
-                    <p>2000XCFA</p>
-                    <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                    <button class="btn btn-outline-orange-2 add-2-cart" >Edit</button>
-                </div>
-            </div>
-            <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
-                <img src="./assets/pics/Ndole-1-960x1199-1.png" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
-                <div class="border rounded3 food-info">
-                    <p>Ndole</p>
-                    <p>With Goat meat</p>
-                    <p>2000XCFA</p>
-                    <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                </div>
-            </div>
-            <div class="col-lg-3 col-10 rounded3 px-5 py-5  mb-lg-2 mb-5 position-relative">
-                <img src="./assets/pics/other-0.jpg" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
-                <div class="border rounded3 food-info">
-                    <p>Poulet DJ</p>
-                    <p>With Chicken</p>
-                    <p>2000XCFA</p>
-                    <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
-                </div>
+            <div class="all-meals-container2 row justify-content-center container" style="padding: 0 4em;">
+
             </div>
         </div>
         <div class="todays-menu-mobile d-md-none row justify-content-center all-meals">
@@ -301,7 +283,7 @@
     <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="./assets/js/index.js"></script>
     <script>
-        $(document).ready(function (){
+        $(document).ready(async function (){
             let caret_down=document.querySelector('.caret_down');
             caret_down.addEventListener('click',()=>{
                 caret_down.classList.toggle('fa-caret-up')
@@ -319,16 +301,34 @@
             })
             function AppInit(){
             let allMeals;
-            fetch('http://localhost:5000/getMeals',{
+            fetch('http://localhost:5000/getMeals/none',{
                 method:'GET'
             }).then(res=>res.json())
             .then((data)=>{
+                let totalQ=data.pop()
                 allMeals=data
                 let all_meals=document.querySelector('.all-meals-container');
+                let amd=document.querySelector('.all-meals-container2')
                 let ac=''
                 data.forEach(element=>{
+                    let d_none=''
+                    let d_none2=''
+                    let d_none3=''
+                    let d_none4=''
+                    if(element.menu=='today'){
+                        d_none='d-none'
+                    }
+                    else{
+                        d_none2='d-none'
+                    }
+                    if(element.promo){
+                        d_none3='d-none'
+                    }
+                    else{
+                        d_none4='d-none'
+                    }
                     ac+=`
-                    <div class="col-11 rounded3 py-3 mb-lg-2 mb-1 position-relative admin-menu mt-4">
+                    <div class="col-md-4 col-11 rounded3 py-3 mb-lg-2 mb-1 position-relative admin-menu mt-4">
                         <img src="./assets/images/${element.image}" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
                         <div class="border rounded3 food-info">
                             <p>${element.name}</p>
@@ -339,15 +339,18 @@
                                 <p class="more">See more...</p>    
                             </a>
                             <button class="btn btn-outline-orange-2 add-2-cart" style="border-radius:10px;"><i class="fas fa-plus" style="font-size: 12px;">Add to cart</i></button>
-                            <button class="btn btn-outline-orange-2" style="border-radius: 10px;"><i class="fas fa-trash" style="font-size: 12px;"> Delete</i></button>
+                            <button class="btn btn-outline-orange-2 delete" style="border-radius: 10px;"><i class="fas fa-trash" style="font-size: 12px;"> Delete</i></button>
                             <button class="btn btn-outline-orange-2" style="border-radius: 10px;"><i class="fas fa-edit" style="font-size: 12px;"> Edit</i></button>
-                            <button class="btn btn-outline-orange-2 mt-2" style="border-radius: 10px; font-size:12px; font-weight:bold;">Add to Today's Menu</button>
-                            <button class="btn btn-outline-orange-2 mt-2" style="border-radius: 10px; font-size:12px; font-weight:bold;">Add to Promo Menu</button>
+                            <button class="btn btn-outline-orange-2 mt-2 todays-menu ${d_none}" style="border-radius: 10px; font-size:12px; font-weight:bold;">Add to Today's Menu</button>
+                            <button class="btn btn-outline-orange-2 mt-2 r-todays-menu ${d_none2}" style="border-radius: 10px; font-size:12px; font-weight:bold;">Remove from Today's Menu</button>
+                            <button class="btn btn-outline-orange-2 mt-2 promo-menu ${d_none3}" style="border-radius: 10px; font-size:12px; font-weight:bold;">Add to Promo Menu</button>
+                            <button class="btn btn-outline-orange-2 mt-2 r-promo-menu ${d_none4}" style="border-radius: 10px; font-size:12px; font-weight:bold;">Remove from Promo Menu</button>
                         </div>
                     </div>
                     `
                 })
                 all_meals.insertAdjacentHTML('beforeend',ac)
+                amd.insertAdjacentHTML('beforeend',ac)
                 let more=document.querySelectorAll('.more')
                         let modal_content=document.querySelector('.modal-content')
                         for(let i=0;i<more.length;i++){
@@ -360,9 +363,6 @@
                                         break;
                                     }
                                 }
-                                // allMeals.forEach(element=>{
-                                //     if(element._id==id) results=element
-                                // })
                                 modal_content.innerHTML=`
                                 <button type="button" class="btn-close p-2 m-2 position-absolute" style="right: 0;" data-bs-dismiss="modal" aria-label="Close"></button>
                                 <div class="container row justify-content-center p-md-5 p-1 mt-md-0 mt-4 mb-md-0 mb-4">
@@ -385,13 +385,110 @@
                                 ` 
                             })
                         }
-            })
+            }).then(()=>{
+                let addButtons=document.querySelectorAll('.add-2-cart')
+                        addButtons.forEach(element=>{
+                            element.addEventListener('click',()=>{
+                                let id2=element.previousElementSibling.previousElementSibling.textContent
+                                let cartItem;
+                                fetch(`http://localhost:5000/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
+                                    let itemNum=document.querySelectorAll('.item-num')
+                                    console.log(itemNum[0])
+                                    itemNum.forEach((element)=>{
+                                        element.textContent=data 
+                                    })
+                                })
+                            })
+                        })
+                let deletebuttons=document.querySelectorAll('.delete')
+                deletebuttons.forEach((element)=>{
+                    let id2=element.previousElementSibling.previousElementSibling.previousElementSibling.textContent
+                    element.addEventListener('click',()=>{
+                        fetch('http://localhost:5000/deleteMeal',{
+                            method:"POST",
+                            headers:{
+                                'Accept':'applicaiton/json, text/plain,*/*',
+                                'Content-type':'application/json'
+                            },
+                            body:JSON.stringify({mealID:id2})
+                        }).then(res=>res.json()).then((data)=>{
+                            //location.reload()
+                        })
+                        location.reload()
+                    })
+                })
+                let todaysMenu=document.querySelectorAll('.todays-menu')
+                //=todaysMenu.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent
+                todaysMenu.forEach((element)=>{
+                    let ID3=element.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent
+                    element.addEventListener('click',()=>{
+                         fetch('http://localhost:5000/addToTodaysMenu',{
+                            method:'POST',
+                            headers:{
+                                'Accept':'applicaiton/json, text/plain,*/*',
+                                'Content-type':'application/json'
+                            },
+                            body:JSON.stringify({mealID:ID3})
+                        }).then(res=>res.json()).then((data)=>{
+                            location.reload()
+                        })
+                        })
+                })
+                let rTodaysMenu=document.querySelectorAll('.r-todays-menu')
+                rTodaysMenu.forEach((element)=>{
+                    let ID3=element.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent
+                    element.addEventListener('click',()=>{
+                         fetch('http://localhost:5000/rTodaysMenu',{
+                            method:'POST',
+                            headers:{
+                                'Accept':'applicaiton/json, text/plain,*/*',
+                                'Content-type':'application/json'
+                            },
+                            body:JSON.stringify({mealID:ID3})
+                        }).then(res=>res.json()).then((data)=>{
+                            location.reload()
+                        })
+                    })
+                })
+                let promoMenu=document.querySelectorAll('.promo-menu')
+                promoMenu.forEach((element)=>{
+                    let ID3=element.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent
+                    element.addEventListener('click',()=>{
+                        fetch('http://localhost:5000/addToPromoMenu',{
+                            method:'POST',
+                            headers:{
+                                'Accept':'applicaiton/json, text/plain,*/*',
+                                'Content-type':'application/json'
+                            },
+                            body:JSON.stringify({mealID:ID3})
+                        }).then(res=>res.json()).then((data)=>{
+                            location.reload()
+                        })
+                    })
+                })
+                let rpromoMenu=document.querySelectorAll('.r-promo-menu')
+                rpromoMenu.forEach((element)=>{
+                    let ID3=element.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent
+                    element.addEventListener('click',()=>{
+                        fetch('http://localhost:5000/rPromoMenu',{
+                            method:'POST',
+                            headers:{
+                                'Accept':'applicaiton/json, text/plain,*/*',
+                                'Content-type':'application/json'
+                            },
+                            body:JSON.stringify({mealID:ID3})
+                        }).then(res=>res.json()).then((data)=>{
+                            location.reload()
+                        })
+                    })
+                })
+                })
             }
             AppInit()
-            document.querySelector('.shopping-cart').addEventListener('click',()=>{
+            /*document.querySelector('.shopping-cart').addEventListener('click',()=>{
                 $('.not-cart').hide()
                 $('.cart').removeClass('d-none')
-            })
+            })*/
         })
     </script>
 </body>

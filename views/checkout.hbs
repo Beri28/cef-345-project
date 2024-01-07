@@ -7,18 +7,129 @@
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/fonts/css/all.css">
     <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="shortcut icon" href="./assets/app_pics/2-logo-1.png" type="image/x-icon">
     <script  type="text/javascript" src="./assets/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="row justify-content-center">
-        <div class="col-11 p-3">
-            <div class="form-group">
-                <label for="momo-number">Enter MOMO number</label>
-                <input type="number" class="form-control" placeholder="Enter number" name="momo-number">
-            </div>
-            <button class="btn btn-orange-2">Done</button>
+        <div class=" col-11">
+            <h2>Items You are paying for</h2>
+        </div>
+        <div class="order-details">
         </div>
     </div>
-    <script src="../public/assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <div class="row justify-content-center">
+        <div class="col-11 p-3">
+            <form action="" method="post"  class="momo-form">
+                <div class="form-group">
+                    <label for="momo-number" class="my-2">Enter MOMO number</label>
+                    <input type="tel" id="momo-number" class="form-control my-2" placeholder="Enter number" name="momo-number" pattern="[6]{1}[5,7,8]{1}[0-9]{7}" required>
+                </div>
+                <div class="form-group error d-none">
+                    <p class="text-danger">Please enter a valid phone number</p>
+                </div>
+                <button class="btn btn-outline-orange-2 modal-trigger" type="submit">Done</button>
+                <!--button class="btn btn-outline-orange-2" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">Done</button>
+                -->
+            </form>
+        </div>
+    </div>
+    <!-- Modal content starts here -->
+    <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable d-flex justify-content-center" style="max-width: 800px;">
+          <div class="modal-content col-10 momo-modal" style="overflow-y: auto;">
+            <div class="">
+                <p class="w-100 mb-0 momo-message" style="padding: 2em 1.5em 2em 2em; color: black;">Beware ! <span class="momo-amt"></span> F to be withdrawn from your account! Enter you PIN code to confirm this transaction No 1252810815 initiated by -- or 0 to cancel</p>
+                <form action="" method="post" class="momo-code">
+                    <input type="number" class="momo-input" pattern="/^[0-9]{5}$/" required>
+                    <div class="momo-buttons row justify-content-end">
+                        <button class="btn btn-outline-primary col-3 shadow-none" data-bs-dismiss="modal" aria-label="close">CANCEL</button>
+                        <button class="btn btn-outline-primary col-3 momo-send shadow-none" type="submit">SEND</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+        <!-- Modal content ends here -->
+    </div>
+    <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script>
+        $(document).ready(function(){
+            fetch('http://localhost:5000/cartItems',{
+            method:'GET'
+        }).then(res=>res.json()).then((data)=>{
+            let mealNames=[]
+            let mealQnty=[]
+            let mealPrices=[]
+            let grandTotal=data[1]
+            let grandQnty=data[2]
+            for(let n in data[0]){
+                mealNames.push(data[0][n].item.name)
+                mealQnty.push(data[0][n].qty)
+                mealPrices.push(data[0][n].price)
+            }
+            let od=document.querySelector('.order-details')
+            let cod=''
+            for(let i=0;i<mealNames.length;i++){
+                cod+=`
+                <div class="row justify-content-center">
+                     <div class="col-3 name d-flex justify-content-start" style="border: 2px solid black;">${mealNames[i]}</div>
+                    <div class="col-3 qnty d-flex justify-content-start" style="border: 2px solid black;">${mealQnty[i]}</div>
+                    <div class="col-3 amt d-flex justify-content-start" style="border: 2px solid black;">${mealPrices[i]}</div>
+                </div>
+                `
+            }
+            let cod2=`
+                <div class="row justify-content-center">
+                     <div class="col-3 name d-flex justify-content-start mx-1" style="font-weight: 900; border-bottom: 2px solid black; border-bottom-style: dashed;">Total</div>
+                    <div class="col-3 qnty d-flex justify-content-start mx-1" style="font-weight: 900; border-bottom: 2px solid black; border-bottom-style: dashed;">${grandQnty}</div>
+                    <div class="col-3 amt d-flex justify-content-start mx-1" style="font-weight: 900; border-bottom: 2px solid black; border-bottom-style: dashed;">${grandTotal}</div>
+                </div>
+            `
+            od.insertAdjacentHTML('afterbegin',cod)
+            od.insertAdjacentHTML('beforeend',cod2)
+            document.querySelector('.momo-amt').innerHTML=grandTotal
+        }).then(()=>{
+            document.querySelector('.momo-form').addEventListener('submit',(event)=>{
+                event.preventDefault()
+            })
+            document.querySelector('.momo-code').addEventListener('submit',(event)=>{
+                event.preventDefault()
+            })
+            function validateForm(event){
+                let num2=document.querySelector('#momo-number').value
+                let testC=/[6]{1}[5,7,8]{1}[0-9]{7}/.test(num2)
+                testC=/^[0-9]{9}$/.test(num2)
+                console.log(testC)
+                if(testC){
+                    document.querySelector('.error').classList.add('d-none')
+                    let mymodal=new bootstrap.Modal(document.getElementById('exampleModalCenteredScrollable'))
+                    mymodal.show()
+                }
+                else if(!testC){
+                    document.querySelector('.error').classList.add('d-none')
+                }
+            }
+            document.querySelector('.modal-trigger').addEventListener('click',validateForm)
+            class newNumber{
+                constructor(check){
+                    this.check=-1
+                    this.check++ 
+                }
+                /*this.check=0;
+                this.addOne=()=>{
+                    this.check++
+                }*/
+            }
+            document.querySelector('.momo-send').addEventListener('click',()=>{
+                let temp=new newNumber
+                if(temp.check==0){
+                    document.querySelector('.momo-message').textContent="PIN code incorrect!"
+                    //temp.addOne()
+                }
+            })
+        })
+        })
+    </script>
 </body>
 </html>

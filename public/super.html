@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/fonts/css/all.css">
+    <link rel="stylesheet" href="./assets/bootstrap/bootstrap-icons-1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <link rel="shortcut icon" href="./assets/app_pics/2-logo-1.png" type="image/x-icon">
+</head>
+<body>
+    <div class="row justify-content-center m-2 p-2">
+        <div class="row-contents">
+           
+        </div>
+    </div>
+    <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script> 
+    <script>
+        $(document).ready(function(){
+            fetch('http://localhost:5000/getManagers',{
+                method:"GET"
+            }).then(res=>res.json()).then((data)=>{
+                console.log(data)
+                let rc=''
+                data.forEach(element => {
+                    rc+=`
+                    <div class="col-md-3 col-10 border p-4 shadow" style="border-radius:20px;">
+                        <p>Name: ${element.name}</p>
+                        <p>${element._id}</p>
+                        <button class="validate btn btn-outline-orange-2">Validate</button>
+                     </div>
+                    `
+                    document.querySelector('.row-contents').innerHTML=rc
+                });
+                let valButton=document.querySelectorAll('.validate')
+                valButton.forEach((element)=>{
+                    element.addEventListener('click',()=>{
+                        let mID=element.previousElementSibling.textContent
+                        fetch('http://localhost:5000/validateManager',{
+                            method:"POST",
+                            headers:{
+                            'Accept':'applicaiton/json, text/plain,*/*',
+                            'Content-type':'application/json'
+                            },
+                            body:JSON.stringify({managerID:mID})
+                        }).then(res=>res.json())
+                        location.reload()
+                    })
+                })
+            })
+        })
+    </script>    
+</body>
+</html>

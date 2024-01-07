@@ -17,6 +17,7 @@ const fs=require('fs')
 const mealSchema=require('./model/meal')
 const flash=require('connect-flash');
 const { escape } = require('querystring');
+const nodemailer=require('nodemailer')
 require('./config/passport')
 
 
@@ -87,11 +88,11 @@ const isAdmin=(req,res,next)=>{
 
 app.post('/add',isAdmin,upload.single('image'),async (req,res)=>{
     try {
-        //if(req.isAuthenticated()){
-            //if(req.user.account_Type=='restaurant-manager'){
-                req.body.image=req.body.name + path.extname(req.file.originalname) 
+                req.body.rating=parseInt(req.body.rating)
+                req.body.rated_by=parseInt(req.body.rated_by)
+                req.body.image=req.body.name.replace(/\s+/g,'') + path.extname(req.file.originalname)
                 let oldImagePath= "public/assets/images/" + req.file.originalname;
-                let newImageName=req.body.name + path.extname(req.file.originalname) 
+                let newImageName=req.body.image//req.body.image + path.extname(req.file.originalname) 
                 let newImagePath="public/assets/images/" + newImageName
                 fs.rename(`${oldImagePath}`,`${newImagePath}`,(err)=>{
                     if(err){
@@ -104,14 +105,6 @@ app.post('/add',isAdmin,upload.single('image'),async (req,res)=>{
                 }).catch(()=>{
                     res.send("Couldn't save")
                 })
-        //     }
-        //     else{
-        //         res.send("Your aren't an admin")
-        //     }
-        // }
-        // else{
-        //     res.redirect('/login')
-        // }
     } catch (error) {
         console.log(error)
         res.send("error in adding new meal")

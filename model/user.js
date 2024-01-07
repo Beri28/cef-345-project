@@ -7,6 +7,8 @@ const userSchema= new mongoose.Schema({
     address:{type:String,required:true},
     contact:{type:String,required:true},
     account_Type:{type:String,required:true},
+    code:{type:String,default:'none'},
+    isValidated:{type:Boolean,default:false}
 },{timestamps:true})
 userSchema.methods.encryptPassword=async (password)=>{
     console.log(typeof(bcrypt.hashSync(password,8)))

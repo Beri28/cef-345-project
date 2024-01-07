@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/fonts/css/all.css">
     <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="shortcut icon" href="./assets/app_pics/2-logo-1.png" type="image/x-icon">
     <script  type="text/javascript" src="./assets/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -69,29 +70,28 @@
                     </form>
                 </div>
             </div>
+                
         </main>
     </div>
     <script>
         fetch('http://localhost:5000/cartItems',{
             method:'GET'
         }).then(res=>res.json().then(data=>{
-            console.log("----",data)
             let cartCont=document.querySelector('.cart-container');
             let ccc=''
             for(let item in data[0]){
-                console.log(data[0][item].item)
                 ccc+=`
                 <div class="row justify-content-center mt-4 pt-4">
                 <div class="col-md-2 col-11 cart-img mb-4">
                     <img src="./assets/images/${data[0][item].item.image}" class="img-fluid rounded2 w-100" alt="">
                 </div>
                 <div class="col-md-9 col-11 d-flex align-content-md-center">
-                    <div class="row align-content-md-center w-100 mb-5" style="">
+                    <div class="row align-content-md-center w-100 mb-5" style="" id="${data[0][item].item._id}">
                         <div class="col-md-3 col-8">
                             <p style="font-weight: bold; margin-bottom: .5em;">${data[0][item].item.name}</p>
                             <p class="text-muted" style="line-height: 0;">Add-ons</p>
                         </div>
-                        <div class="col-md-3 col-3 d-flex justify-content-md-center justify-content-end text-muted"><span class="d-none og-amt">${data[0][item].price}</span><span class="amt">${data[0][item].price}</span>FCFA</div>
+                        <div class="col-md-3 col-3 d-flex justify-content-md-center justify-content-end text-muted"><span class="d-none og-amt">${data[0][item].item.price}</span><span class="amt">${data[0][item].price}</span>FCFA</div>
                         <div class="col-md-3 col-6">
                             <button class="btn btn-outline-orange minus">-</button>
                             <button class="btn btn-outline-orange qnty">${data[0][item].qty}</button>
@@ -116,7 +116,6 @@
                     total=total+ parseInt(amt[i].textContent);
                     total=parseInt(total)
                 }
-                console.log(total)
                 grandTotal.textContent=total
             }
             updateGrandTotal()
@@ -130,16 +129,56 @@
                 add[i].addEventListener('click',()=>{
                     amt[i].textContent=((og_amt[i].textContent) * (++qnty[i].textContent))
                     updateGrandTotal()
+                    let ID1=add[i].parentElement.parentElement.id
+                    let sentQnty=qnty[i].textContent
+                    let sentAmt=amt[i].textContent;
+                    let sentTotalAmt=document.querySelector('.grand-total').textContent
+                    fetch('http://localhost:5000/updateCart',{
+                        method:'POST',
+                        headers:{
+                            'Accept':'applicaiton/json, text/plain,*/*',
+                            'Content-type':'application/json'
+                        },
+                        body:JSON.stringify({ID:ID1,amt:sentAmt,qnty:sentQnty,tAmt:sentTotalAmt})
+                    }).then(res=>res.json()).then((data)=>{
+                        console.log(data)
+                    })
                 })
                 minus[i].addEventListener('click',()=>{
-                    if(qnty[i].textContent<=0){
+                    let ID1=minus[i].parentElement.parentElement.id
+                    if(qnty[i].textContent<=1){
                         amt[i].textContent=0
                         updateGrandTotal()
+                        fetch('http://localhost:5000/deleteCartItem',{
+                        method:'POST',
+                        headers:{
+                            'Accept':'applicaiton/json, text/plain,*/*',
+                            'Content-type':'application/json'
+                        },
+                        body:JSON.stringify({ID:ID1})
+                        }).then(res=>res.json()).then( (data)=>{
+                            location.reload()
+                            document.querySelector('.grand-total').textContent=data
+                        })
+                        minus[i].parentElement.parentElement.parentElement.parentElement.remove()
                         return
                     }
                     else{
                         amt[i].textContent=((og_amt[i].textContent) * (--qnty[i].textContent))
                         updateGrandTotal()
+                        let sentQnty=qnty[i].textContent
+                        let sentAmt=amt[i].textContent;
+                        let sentTotalAmt=document.querySelector('.grand-total').textContent
+                        fetch('http://localhost:5000/updateCart',{
+                            method:'POST',
+                            headers:{
+                                'Accept':'applicaiton/json, text/plain,*/*',
+                                'Content-type':'application/json'
+                            },
+                            body:JSON.stringify({ID:ID1,amt:sentAmt,qnty:sentQnty,tAmt:sentTotalAmt})
+                        }).then(res=>res.json()).then((data)=>{
+                            console.log(data)
+                        })
                     }
                 })
             }
@@ -151,16 +190,26 @@
                     total=total+ parseInt(amt[i].textContent);
                     total=parseInt(total)
                 }
-                console.log(total)
                 grandTotal.textContent=total
             }
             let deleteButton=document.querySelectorAll('.delete-icon')
-            console.log(deleteButton[0])
             deleteButton.forEach(element=>{
                 element.addEventListener('click',()=>{
                     //element.parentElement.parentElement.parentElement.classList.add('d-none')
+                    let elId=element.parentElement.id
+                    fetch('http://localhost:5000/deleteCartItem',{
+                        method:'POST',
+                        headers:{
+                            'Accept':'applicaiton/json, text/plain,*/*',
+                            'Content-type':'application/json'
+                        },
+                        body:JSON.stringify({ID:elId})
+                    }).then(res=>res.json()).then( (data)=>{
+                        location.reload()
+                        document.querySelector('.grand-total').textContent=data
+                    })
                     element.parentElement.parentElement.parentElement.remove()
-                    updateGrandTotal
+                    updateGrandTotal()
                 })
             })
         })

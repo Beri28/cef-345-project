@@ -161,6 +161,7 @@ ul li.col-3{
 .btn-outline-orange-2:hover{
     color: black;
     background-color: orange;
+    border-color: white;
     transform: scale(1.2);
     transition: 0.8s;
 }
@@ -383,7 +384,38 @@ ul li.col-3{
     cursor: pointer;
 }
 /* Styling for admin.hbs ends here*/
-
+.ptm:hover,.ctm:hover{
+    cursor: pointer;
+}
+.momo-modal{
+    width: 90%!important;
+}
+.momo-input{
+    border: none;
+    border-bottom: 2px solid #0d6efd;
+    width: 98%;
+    margin: 0 0.2em 2em 0.3em;
+    padding-left: 1.8em;
+}
+.momo-input:focus{
+    outline: none;
+}
+.momo-buttons{
+    margin: 1em;
+}
+.momo-buttons button{
+    font-weight:600;
+    border: none;
+}
+.momo-buttons button:focus{
+    color: #0d6efd;
+    background-color: white;
+    border-color: white;
+}
+.momo-buttons button:hover{
+    background-color: initial;
+    color: #0d6efd;
+}
 
 /* Responsive design begins here */
 @media screen and (width <= 768px) {

@@ -1,5 +1,7 @@
 const userSchema=require('../model/user')
 const mealSchema=require('../model/meal')
+const paymentSchema=require('../model/payment')
+const menuSchema=require('../model/menu')
 const bcrypt=require('bcrypt')
 
 
@@ -33,17 +35,51 @@ const saveNewMeal=async (req,res)=>{
         res.send(error)
     }
 }
-
+const deleteMeal=async (req,res)=>{
+    try {
+        console.log(req.body)
+        let mealpic=await mealSchema.findById(req.body.mealID)
+        mealpic=mealpic.image
+        console.log(mealpic)
+        await mealSchema.findByIdAndDelete(req.body.mealID)
+    } catch (error) {
+        res.send(error)
+    }
+}
 const getMeals= async (req,res)=>{
     try {
-        let results=await mealSchema.find({});
-        if(req.session.cart){
-            results.push(req.session.cart.totalQty)
-            res.send(results)
+        if(req.params.type=='today'){
+            let results=await mealSchema.find({menu:'today'});
+            if(req.session.cart){
+                results.push(req.session.cart.totalQty)
+                res.send(results)
+            }
+            else{
+                results.push(0)
+                res.send(results)        
+            }
+        }
+        else if(req.params.type=='promo'){
+            let results=await mealSchema.find({menu:'promo'});
+            if(req.session.cart){
+                results.push(req.session.cart.totalQty)
+                res.send(results)
+            }
+            else{
+                results.push(0)
+                res.send(results)        
+            }
         }
         else{
-            results.push(0)
-            res.send(results)        
+            let results=await mealSchema.find({});
+            if(req.session.cart){
+                results.push(req.session.cart.totalQty)
+                res.send(results)
+            }
+            else{
+                results.push(0)
+                res.send(results)        
+            }
         }
     } catch (error) {
         res.send(error)
@@ -83,9 +119,102 @@ const logoutUser=async(req,res)=>{
         res.redirect('/')
     })
 }
+const paymentDetails=async (req,res)=>{
+    try {
+        paymentSchema.find({userId:req.user.id},(err,result)=>{
+            if(err){
+                console.log(err)
+                res.send("There was a db error")
+                return
+            }
+            let mealName=''
+            mealSchema.find({_id:result[0].mealId},(err,result2)=>{
+                if(err){
+                    console.log(err)
+                    res.send("DB error")
+                    return
+                }
+                mealName=result2[0].name
+                result.meal_Name=mealName
+                // res.send({result:result,mealName:mealName})
+                res.send({undefined})
+            })
+        })
+        
+    } catch (error) {
+        res.send(error)
+    }
+}
+const addToTodaysMenu=async (req,res)=>{
+    try {
+       console.log(req.body)
+       let meal=await mealSchema.findByIdAndUpdate(req.body.mealID,{menu:'today'},{new:true})
+       res.send(meal)
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+    }
+}
+const removeFromTodaysMenu=async (req,res)=>{
+    try {
+        console.log(req.body)
+        let meal=await mealSchema.findByIdAndUpdate(req.body.mealID,{menu:'none'},{new:true})
+        res.send(meal)
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({message:"Server error"})
+    }
+}
+const addToPromoMenu=async (req,res)=>{
+    try {
+        console.log(req.body)
+        let meal=await mealSchema.findOneAndUpdate({_id:req.body.mealID},{$set:{promo:true}},{new:true})
+        console.log(meal)
+        res.send(meal)
+    } catch (error) {
+        console.log(error)
+        res.send({message:"Server error"})
+    }
+}
+const removeFromPromoMenu=async (req,res)=>{
+    try {
+        console.log(req.body)
+        let meal=await mealSchema.findByIdAndUpdate(req.body.mealID,{promo:false},{new:true})
+        res.send(meal)
+    } catch (error) {
+        console.log(error)
+        res.send({message:"Server error"})
+    }
+}
+const getManagers=async (req,res)=>{
+    try {
+        userSchema.find({account_Type:"restaurant-manager"},(err,result)=>{
+            if(err){
+                console.log(err)
+                return
+            }
+            let aresults=[]
+            result.forEach((element)=>{
+                if(!element.isValidated){
+                    aresults.push(element)
+                }
+            })
+            res.send(aresults)
+        })
+    } catch (error) {
+        throw(error)
+    }
+}
 
-exports.saveNewUser=saveNewUser
+exports.saveNewUser=saveNewUser;
 exports.saveNewMeal=saveNewMeal;
 exports.getMeals=getMeals;
-exports.loginUser=loginUser
-exports.logoutUser=logoutUser
+exports.loginUser=loginUser;
+exports.logoutUser=logoutUser;
+exports.paymentDetails=paymentDetails;
+exports.addToTodaysMenu=addToTodaysMenu;
+exports.removeFromTodaysMenu=removeFromTodaysMenu;
+exports.addToPromoMenu=addToPromoMenu
+exports.removeFromPromoMenu=removeFromPromoMenu
+exports.deleteMeal=deleteMeal
+exports.getManagers=getManagers

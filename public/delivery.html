@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamland Restaurant Delivery Guy</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/fonts/css/all.css">
+    <link rel="stylesheet" href="./assets/bootstrap/bootstrap-icons-1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <link rel="shortcut icon" href="./assets/app_pics/2-logo-1.png" type="image/x-icon">
+</head>
+<body>
+    <div class="shadow-2 container mb-4 not-cart" style="overflow-x: hidden;">
+        <div class="row d-md-none d-flex justify-content-around mt-2 border-top border-bottom py-3 mobile-nav-menu" 
+        style="position:fixed; bottom:1em; background-color: #efd19a; z-index: 10; width: 80%; margin-left: 1.7em; border-radius: 20px;">
+            <div class="d-block col-2 rounded pt-3 hc mobile-active">
+                <a href="delivery.html">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-home"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Home</p>
+                </a>
+            </div>
+            <div class="d-block col-2 rounded pt-3 mc" style="margin: 0;">
+                <a href="#menu" class="menu-icon">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-th-large"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Menu</p>
+                </a>
+            </div>
+            <div class="d-block col-2 rounded ac pt-3">
+                <a href="./login.html" class="account-icon">
+                    <p class="mb-0 d-flex justify-content-center" >
+                        <i class="fas fa-user"></i>
+                    </p>
+                    <p class="d-flex justify-content-center">Account</p>
+                </a>
+            </div>
+        </div>
+        <header class="">
+            <div class="row justify-content-center mt-4 py-2">
+                <div class="col-lg-2 col-md-3 col d-flex justify-content-between">
+                    <div class="d-md-flex d-none">
+                        <a href="/" class="logo-anchor">
+                            <!-- <img src="./assets/app_pics/2-logo.jpg" class="img-fluid" alt="logo"> -->
+                            <h2 class="logo mb-0"><span class="d">D</span><span class="not-d">reamland</span></h2>
+                            <h6 style="margin-top: -6px;">
+                                <span style="color: orange; font-family: cursive;letter-spacing: .5em;">Restaurant</span>
+                            </h6>
+                        </a>
+                    </div>
+                    <div class="d-md-none d-flex justify-content-between">
+                        <a href="#" class="" style="width: 10%;">
+                            <i class="fas fa-user shadow-2 p-3" style="border-radius: 50%; background-color:#efd19a; background-color: orange;"></i>
+                        </a>
+                        <div class="greetings " style="width: 85%;">
+                            <p class="p-big">Hello Guest</p>
+                            <p class="p-small">What do you feel like eating today</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="#" class="d-md-none d-md-flex d-none align-items-center mobile-search-icon p-3" style="text-decoration: none;">
+                            <i class="fas fa-search"></i>
+                        </a>
+                        <a href="/cart" class="d-md-none d-flex align-items-center mobile-search-icon p-3 position-relative shopping-cart" style="text-decoration: none;">
+                            <i class="fas fa-shopping-cart"></i>
+                            <sup class="item-num position-absolute item-num" style="top: 3em; right: -.1em; background-color: orange;padding: 0.7em 0.5em 0.78em 0.5em; border-radius: 50%;">0</sup>
+                        </a>
+                        <div class="col-2 d-md-none d-flex justify-content-md-center justify-content-end align-items-md-center align-items-start position-relative">
+                            <i class="fas fa-bell notifications-icon shadow-2 p-3"></i>
+                            <sub class="notifications-num position-absolute">0</sub>
+                        </div>
+                    </div>
+                    <!-- <h2 class="logo mb-0"><span class="d">D</span><span class="not-d">reamland</span></h2>
+                    <h6 style="margin-top: -6px;"><span style="color: orange; font-family: cursive;letter-spacing: .5em;">Restaurant</span></h6>
+                     -->
+                </div>
+                <div class="col-lg-6 col-md-8 d-md-flex d-none justify-content-end align-content-center mb-0">
+                    <ul class="row w-75">
+                        <li class="col-lg-3 col-4"><a href="#menu" style="text-decoration: none;">Menu</a></li>
+                        <li class="col-lg-3 col-4">Settings</li>
+                        <li class="col-lg3 col-4">Contact Us</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md d-md-flex d-none justify-content-lg-between justify-content-md-around align-content-center 3-h-sec">
+                    <div class="search-bar position-relative">
+                        <form action="/search" method="post">
+                            <input class="border-0 shadow-2 w-100" name="search" type="search" placeholder="Search" required>
+                            <button class="position-absolute fa-button-c" style="left: .8em; top: 1.1em;" type="submit">
+                                <i class="fas fa-search " ></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="cart position-relative mt-2">
+                        <a href="/cart" class="shopping-cart01">
+                            <i class="fas fa-shopping-cart shadow-2"></i>
+                            <sup class="item-num position-absolute" style="top: -.6em; right: -.9em;">0</sup>
+                        </a>
+                    </div>
+                    <div class="account mt-2">
+                        <a href="/userAccount">
+                            <i class="fas fa-user shadow-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center my-3 d-md-none d-flex">
+                <form action="/search" method="post" class="d-flex">
+                    <div class="form-group position-relative " style="width: 90%;">
+                        <input type="search" class="form-control px-5" name="search" placeholder="Enter dish name" style="background-color: #efd19a;">
+                        <i class="fas fa-search position-absolute" style=" top: .8em; left: 1em; color: gray;"></i>
+                    </div>
+                    <button class="btn btn-outline-orange mx-2"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </header>
+        <main>
+            <div class="initial-c">
+                <div class="row justify-content-center d-md-none d-flex">
+                    <div class="col-6 d-flex justify-content-center ctm" style="font-family: cursive;"><p class="ctm-p active3">Confirmed(20)</p></div>
+                    <div class="col-6 d-flex justify-content-center ptm" style="font-family: cursive;"><p class="ptm-p">Pending(6)</p></div>
+                </div>
+                <div class="row confimred-deliveries cd d-flex justify-content-around mt-md-2">
+                    <div class="row justify-content-start d-md-flex d-none">
+                        <p class="col-3 active3 h3 pb-2" style="margin-left: 2em; padding-left: 0; padding-right: 0;">Confirmed Deliveries(20)</p>
+                    </div>
+                    <div class="row justify-content-around confirmed-delivery-details my-4">
+                        <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
+                            <p><span style="font-weight: bold;">Date</span> : 12/07/2023</p>
+                            <p><span style="font-weight: bold;">Address</span> : Ub Junction</p>
+                            <p><span style="font-weight: bold;">Food Ordered</span> : Ndole And Plantains</p>
+                        </div>
+                        <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
+                            <p><span style="font-weight: bold;">Date</span> : 12/07/2023</p>
+                            <p><span style="font-weight: bold;">Address</span> : Ub Junction</p>
+                            <p><span style="font-weight: bold;">Food Ordered</span> : Ndole And Plantains</p>
+                        </div>
+                        <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
+                            <p><span style="font-weight: bold;">Date</span> : 12/07/2023</p>
+                            <p><span style="font-weight: bold;">Address</span> : Ub Junction</p>
+                            <p><span style="font-weight: bold;">Food Ordered</span> : Ndole And Plantains</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pending-deliveries pd d-flex justify-content-around mt-md-2 d-md-flex d-none">
+                    <div class="row justify-content-start d-md-flex d-none">
+                        <p class="col-3 active3 h3 pb-2" style="margin-left: 2em; padding-left: 0; padding-right: 0;">Pending Deliveries(4)</p>
+                    </div>
+                    <div class="row justify-content-around pending-delivery-details my-4">
+                        <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
+                            <p><span style="font-weight: bold;">Date</span> : 12/07/2023</p>
+                            <p><span style="font-weight: bold;">Address</span> : Ub Junction</p>
+                            <p><span style="font-weight: bold;">Time-left</span> : <span class="time-left"></span></p>
+                            <p><span style="font-weight: bold;">Food Ordered</span> : Ndole And Plantains</p>
+                            <button class="btn btn-outline-orange-2">Confirm</button>
+                        </div>
+                        <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
+                            <p><span style="font-weight: bold;">Date</span> : 12/07/2023</p>
+                            <p><span style="font-weight: bold;">Address</span> : Ub Junction</p>
+                            <p><span style="font-weight: bold;">Time-left</span> : <span class="time-left">4mins</span></p>
+                            <p><span style="font-weight: bold;">Food Ordered</span> : Ndole And Plantains</p>
+                            <button class="btn btn-outline-orange-2">Confirm</button>
+                        </div>
+                        <div class="col-md-3 col-11 shadow-2 p-3 rounded mb-3 mb-md-0">
+                            <p><span style="font-weight: bold;">Date</span> : 12/07/2023</p>
+                            <p><span style="font-weight: bold;">Address</span> : Ub Junction</p>
+                            <p><span style="font-weight: bold;">Time-left</span> : <span class="time-left">5mins</span></p>
+                            <p><span style="font-weight: bold;">Food Ordered</span> : Ndole And Plantains</p>
+                            <button class="btn btn-outline-orange-2">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu row justify-content-around my-5 d-md-flex d-none" id="menu">
+                <div class="d-flex justify-content-center" style="margin-bottom: 6em;">
+                    <h3 class="pb-2" style="border-bottom: 4px solid orange;">Today's Menu</h3>
+                </div>
+                <div class="menu-contents row justify-content-around" style="max-width: 100%">
+                    
+                </div>
+            </div>
+            <div class="menu menu-mobile-container d-none">
+                <div class="col d-flex justify-content-md-center justify-content-between mx-3" style="margin-bottom: .2em;">
+                    <h3 class="pb-2" style="border-bottom: 2px solid orange;">Today's Menu</h3>
+                    <p class="d-md-none" style="color: orange;">See all</p>
+                </div>
+                <div class="menu-mobile d-flex w-100 mt-2">
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script>
+        $(document).ready(function(){
+            document.querySelector('.time-left').textContent="2mins"
+            document.querySelector('.ptm').addEventListener('click',()=>{
+                document.querySelector('.ctm-p').classList.remove('active3')
+                document.querySelector('.ptm-p').classList.add('active3')
+                document.querySelector('.cd').classList.add('d-none')
+                document.querySelector('.pd').classList.remove('d-none')
+            })
+            document.querySelector('.ctm').addEventListener('click',()=>{
+                document.querySelector('.ctm-p').classList.add('active3')
+                document.querySelector('.ptm-p').classList.remove('active3')
+                document.querySelector('.pd').classList.toggle('d-none')
+                document.querySelector('.cd').classList.remove('d-none')
+            })
+            fetch('http://localhost:5000/getMeals/today',{
+                method:"GET"
+            }).then(res=>res.json()).then((data)=>{
+                let totalQ=data.pop()
+                let itemNum1=document.querySelectorAll('.item-num')
+                        itemNum1.forEach((element)=>{
+                            element.textContent=totalQ
+                        })
+                let menu=document.querySelector('.menu-mobile')
+                let menud=document.querySelector('.menu-contents')
+
+                let mc=''
+                let m=''
+                data.forEach(element => {
+                            mc+=`
+                            <div class="col-lg-3 col-7 rounded3 py-3 mb-lg-2 mb-1 position-relative">
+                                <img src="./assets/images/${element.image}" class="position-absolute w-50 rounded-circle shadow-2 food-pic-mobile" alt="">
+                                <div class="border rounded3 food-info">
+                                <p>${element.name}</p>
+                                <p>${element.price} FCFA</p>
+                                <p style="display: none;">${element._id}</p>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                    <p class="more">See more...</p>    
+                                </a>
+                                <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                                </div>
+                            </div>
+                            `
+                            m+=`
+                            <div class="col-lg-3 col-10 rounded3 px-5 py-5 mb-lg-2 mb-5 position-relative">
+                                <img src="./assets/images/${element.image}" class="position-absolute w-50 rounded-circle shadow-2 food-pic" alt="">
+                                <div class="border rounded3 food-info">
+                                    <p>${element.name}</p>
+                                    <p>${element.rating}</p>
+                                    <p>${element.price} FCFA</p>
+                                    <p style="display: none;">${element._id}</p>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                        <p class="more">See more...</p>    
+                                    </a>
+                                    <!--button class="btn btn-outline-orange-2" ><a href="/add-to-cart/${element._id}" class="add-button" style="color:orange;">Add to cart</a></button-->
+                                    <button class="btn btn-outline-orange-2 add-2-cart" >Add to cart</button>
+                                </div>
+                            </div>
+                            `
+                });
+                menu.innerHTML=mc
+                menud.innerHTML=m
+            }).then(()=>{
+                document.querySelector('.menu-icon').addEventListener('click',()=>{
+                    document.querySelector('.hc').classList.remove('mobile-active')
+                    document.querySelector('.mc').classList.toggle('mobile-active')
+                    document.querySelector('.initial-c').classList.toggle('d-none')
+                    document.querySelector('.menu-mobile-container').classList.toggle('d-none')
+                })
+                document.querySelector('.account-icon').addEventListener('click',()=>{
+                    document.querySelector('.hc').classList.remove('mobile-active')
+                    document.querySelector('.mc').classList.remove('mobile-active')
+                    document.querySelector('.ac').classList.toggle('mobile-active')
+                    document.querySelector('.initial-c').classList.toggle('d-none')
+                })
+            }).then(()=>{
+                let addButtons=document.querySelectorAll('.add-2-cart')
+                        addButtons.forEach(element=>{
+                            element.addEventListener('click',()=>{
+                                let id2=element.previousElementSibling.previousElementSibling.textContent
+                                let cartItem;
+                                fetch(`http://localhost:5000/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
+                                    let itemNum=document.querySelectorAll('.item-num')
+                                    itemNum.forEach((element)=>{
+                                        element.textContent=data 
+                                    })
+                                })
+                            })
+                        })
+            })
+        })
+    </script>
+</body>
+</html>

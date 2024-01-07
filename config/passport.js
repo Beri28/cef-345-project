@@ -1,6 +1,18 @@
 const passport=require('passport')
 const userSchema=require('../model/user')
+const nodemailer=require('nodemailer')
 const LocalStrategy=require('passport-local').Strategy
+
+let transporter=nodemailer.createTransport({
+    host:"smtp.forwardemail.net",
+    port:465,
+    secure:true,
+    //service:'gmail',
+    auth:{
+        user:'cletusberinyuy@gmail.com',
+        pass:'dapriest'
+    }
+})
 
 passport.serializeUser((user,done)=>{
     done(null,user._id)
@@ -31,6 +43,24 @@ passport.use('local.signup',new LocalStrategy({
         newUser.address=req.body.address
         newUser.contact=req.body.contact
         newUser.account_Type=req.body.account_Type
+        if(req.body.account_Type=='restaurant-manager'){
+            let newName=req.body.name.replace(/\s+/g,'')
+            newUser.code=newName + "1234"
+            let mailOptions={
+                from:'cletusberinyuy@gmail.com',
+                to:`${email}`,
+                subject:"Login code ",
+                text:`${newUser.code}`
+            }
+            transporter.sendMail(mailOptions,(error,info)=>{
+                if(error){
+                    console.log(error)
+                }else{
+                    console.log("Email Sent")
+                    console.log(info.response)
+                }
+            })
+        }
         newUser.save((err,result)=>{
             if(err){
                 return done(err);
