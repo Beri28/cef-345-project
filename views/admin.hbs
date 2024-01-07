@@ -337,7 +337,7 @@ drift.load('svyyafgtma2f');
             })
             function AppInit(){
             let allMeals;
-            fetch('https://dreamland-restaurant.onrender.com/getMeals',{
+            fetch('https://dreamland-restaurant.onrender.com/getMeals/none',{
                 method:'GET'
             }).then(res=>res.json())
             .then((data)=>{
@@ -427,7 +427,7 @@ drift.load('svyyafgtma2f');
                             element.addEventListener('click',()=>{
                                 let id2=element.previousElementSibling.previousElementSibling.textContent
                                 let cartItem;
-                                fetch(`http://localhost:5000/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
+                                fetch(`https://dreamland-restaurant.onrender.com/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
                                     let itemNum=document.querySelectorAll('.item-num')
                                     console.log(itemNum[0])
                                     itemNum.forEach((element)=>{
@@ -440,7 +440,7 @@ drift.load('svyyafgtma2f');
                 deletebuttons.forEach((element)=>{
                     let id2=element.previousElementSibling.previousElementSibling.previousElementSibling.textContent
                     element.addEventListener('click',()=>{
-                        fetch('http://localhost:5000/deleteMeal',{
+                        fetch('https://dreamland-restaurant.onrender.com/deleteMeal',{
                             method:"POST",
                             headers:{
                                 'Accept':'applicaiton/json, text/plain,*/*',
@@ -458,7 +458,7 @@ drift.load('svyyafgtma2f');
                 todaysMenu.forEach((element)=>{
                     let ID3=element.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent
                     element.addEventListener('click',()=>{
-                         fetch('http://localhost:5000/addToTodaysMenu',{
+                         fetch('https://dreamland-restaurant.onrender.com/addToTodaysMenu',{
                             method:'POST',
                             headers:{
                                 'Accept':'applicaiton/json, text/plain,*/*',
@@ -474,7 +474,7 @@ drift.load('svyyafgtma2f');
                 rTodaysMenu.forEach((element)=>{
                     let ID3=element.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent
                     element.addEventListener('click',()=>{
-                         fetch('http://localhost:5000/rTodaysMenu',{
+                         fetch('https://dreamland-restaurant.onrender.com/rTodaysMenu',{
                             method:'POST',
                             headers:{
                                 'Accept':'applicaiton/json, text/plain,*/*',
@@ -490,7 +490,7 @@ drift.load('svyyafgtma2f');
                 promoMenu.forEach((element)=>{
                     let ID3=element.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent
                     element.addEventListener('click',()=>{
-                        fetch('http://localhost:5000/addToPromoMenu',{
+                        fetch('https://dreamland-restaurant.onrender.com/addToPromoMenu',{
                             method:'POST',
                             headers:{
                                 'Accept':'applicaiton/json, text/plain,*/*',
@@ -506,7 +506,7 @@ drift.load('svyyafgtma2f');
                 rpromoMenu.forEach((element)=>{
                     let ID3=element.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent
                     element.addEventListener('click',()=>{
-                        fetch('http://localhost:5000/rPromoMenu',{
+                        fetch('https://dreamland-restaurant.onrender.com/rPromoMenu',{
                             method:'POST',
                             headers:{
                                 'Accept':'applicaiton/json, text/plain,*/*',

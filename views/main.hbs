@@ -345,7 +345,7 @@ drift.load('svyyafgtma2f');
             })
             function AppInit(){
                 let allMeals;
-                    fetch('http://localhost:5000/getMeals/none',{
+                    fetch('https://dreamland-restaurant.onrender.com/getMeals/today',{
                         method:'GET'
                     }).then(res=>res.json()).then((data)=>{
                         let totalQ=data.pop()
@@ -444,7 +444,7 @@ drift.load('svyyafgtma2f');
                             })
                         })
                     }).then(()=>{
-                        fetch('http://localhost:5000/paymentDetails',{
+                        fetch('https://dreamland-restaurant.onrender.com/paymentDetails',{
                             method:"GET"
                         }).then((res=>res.json())).then((data)=>{
                             let ohd=document.querySelector('.order-history-details')

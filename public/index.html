@@ -343,7 +343,7 @@ drift.load('svyyafgtma2f');
                     let itemNum0;
                     function AppInit(){
                     let allMeals;
-                    fetch('https://dreamland-restaurant.onrender.com/getMeals',{
+                    fetch('https://dreamland-restaurant.onrender.com/getMeals/today',{
                         method:'GET'
                     }).then(res=>res.json()).then((data)=>{
                         let totalQ=data.pop()
