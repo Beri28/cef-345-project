@@ -53,6 +53,6 @@ router.get('/getMeals',getMeals)
 router.post('/checkout',isAuth,(req,res)=>{
     res.render('checkout',{layout:'checkout'})
 })
-router.route('/callback').get(handleCallback).post(handleCallback)
+router.route('/callback/:data').get(handleCallback).post(handleCallback)
 
 module.exports=router;
