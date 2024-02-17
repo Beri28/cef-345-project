@@ -1,5 +1,6 @@
 const userSchema=require('../model/user')
 const mealSchema=require('../model/meal')
+const dataSchema=require('../model/data')
 
 const saveNewUser=async (req,res)=>{
     let userRes=await userSchema.findOne({email:req.body.email})
@@ -86,6 +87,18 @@ const logoutUser=async(req,res)=>{
         }
         res.redirect('./index.html')
     })
+}
+const handleCallback=async (req,res)=>{
+    try{
+        console.log(req.params)
+        console.log(req.body)
+        const newData=await dataSchema.create({req.params,req.body})
+        res.send("Success")
+    }
+    catch(error){
+        console.log(error.message)
+        res.send(`Error : ${error.message}`)
+    }
 }
 
 exports.saveNewUser=saveNewUser
