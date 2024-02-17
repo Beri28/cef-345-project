@@ -1,7 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const mealSchema=require('../model/meal')
-const {saveNewUser,saveNewMeal,getMeals, loginUser,logoutUser}=require('../controller/controller')
+const {saveNewUser,saveNewMeal,getMeals, loginUser,logoutUser,handleCallback}=require('../controller/controller')
 
 let cartItems=[]
 const isAuth=async(req,res,next)=>{
@@ -53,5 +53,6 @@ router.get('/getMeals',getMeals)
 router.post('/checkout',isAuth,(req,res)=>{
     res.render('checkout',{layout:'checkout'})
 })
+router.route('/callback').get(handleCallback).post(handleCallback)
 
 module.exports=router;
