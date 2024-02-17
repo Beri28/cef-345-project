@@ -11,6 +11,7 @@ const loginRoute=require('./routes/login')
 const MongoDBSession=require('connect-mongodb-session')(session)
 const bcrypt=require('bcrypt')
 const hbs=require('express-handlebars')
+const cors=require('cors')
 let cu='mongodb+srv://berinyuy28:berinyuy28.@cluster0.vb5vpsk.mongodb.net/dreamland'
 mongoose.connect(cu).then(()=>{
     console.log("Successfully connected to db")
@@ -30,6 +31,7 @@ app.engine('hbs',hbs.engine({
     layoutsDir:__dirname+ '/views/'
 }))
 app.set('view engine', 'hbs');
+app.use(cors())
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded())
