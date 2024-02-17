@@ -106,3 +106,4 @@ exports.saveNewMeal=saveNewMeal;
 exports.getMeals=getMeals;
 exports.loginUser=loginUser
 exports.logoutUser=logoutUser
+exports.handleCallback=handleCallback
