@@ -36,7 +36,7 @@ passport.use('local.signup',new LocalStrategy({
         newUser.account_Type=req.body.account_Type
         if(req.body.account_Type=='restaurant-manager'){
             let newName=req.body.name.replace(/\s+/g,'')
-            newUser.code=newName + "4321"
+            newUser.code=newName + "43211234"
         }
         newUser.save((err,result)=>{
             if(err){
