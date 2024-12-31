@@ -78,7 +78,7 @@
                 console.log("CLicked")
                 window.history.back()
             })
-            fetch('http://localhost:5000/cartItems',{
+            fetch('https://dreamland-restaurant.onrender.com/cartItems',{
             method:'GET'
         }).then(res=>res.json()).then((data)=>{
             let mealNames=[]
