@@ -471,7 +471,7 @@ drift.load('svyyafgtma2f');
                             element.addEventListener('click',()=>{
                                 let id2=element.previousElementSibling.previousElementSibling.textContent
                                 let cartItem;
-                                fetch(`http://localhost:5000/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
+                                fetch(`https://dreamland-restaurant.onrender.com/add-to-cart/${id2}`).then(res=>res.json()).then((data)=>{
                                     let itemNum=document.querySelectorAll('.item-num')
                                     console.log(itemNum[0])
                                     itemNum.forEach((element)=>{
