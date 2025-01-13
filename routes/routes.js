@@ -57,7 +57,7 @@ router.route('/add-to-cart/:id').get((req,res)=>{
         if(err){
             return res.redirect('/home2')
         }
-        cart.add(meal,meal.id)
+        cart.add(meal,meal._id)
         req.session.cart=cart;
         res.send(`${req.session.cart.totalQty}`)
     })
